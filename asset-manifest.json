@@ -1,16 +1,23 @@
 {
   "files": {
-    "main.css": "/jade-seka-website/static/css/main.f855e6bc.css",
-    "main.js": "/jade-seka-website/static/js/main.f01452b9.js",
+    "main.css": "/jade-seka-website/static/css/main.277a3851.css",
+    "main.js": "/jade-seka-website/static/js/main.d5faaadd.js",
     "static/js/453.a77572ee.chunk.js": "/jade-seka-website/static/js/453.a77572ee.chunk.js",
-    "static/media/logo.svg": "/jade-seka-website/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/scheduleTent.png": "/jade-seka-website/static/media/scheduleTent.acf8a5ba6822e4567d47.png",
+    "static/media/african-mask.png": "/jade-seka-website/static/media/african-mask.627c3525ef882f67a1ab.png",
+    "static/media/gingerbreadhouse.png": "/jade-seka-website/static/media/gingerbreadhouse.b9222f8dd493c3ca734a.png",
+    "static/media/discoball.png": "/jade-seka-website/static/media/discoball.d29e8637551c0cbab322.png",
+    "static/media/goldenrose.png": "/jade-seka-website/static/media/goldenrose.9e91c746b05967c48e62.png",
+    "static/media/marrymegrills.png": "/jade-seka-website/static/media/marrymegrills.4b3dce12cf4a3409a752.png",
+    "static/media/board.png": "/jade-seka-website/static/media/board.1dd152e0734ed16a46d8.png",
+    "static/media/Sekasfont-Regular.woff": "/jade-seka-website/static/media/Sekasfont-Regular.e9f4e776e0bc1955330a.woff",
     "index.html": "/jade-seka-website/index.html",
-    "main.f855e6bc.css.map": "/jade-seka-website/static/css/main.f855e6bc.css.map",
-    "main.f01452b9.js.map": "/jade-seka-website/static/js/main.f01452b9.js.map",
+    "main.277a3851.css.map": "/jade-seka-website/static/css/main.277a3851.css.map",
+    "main.d5faaadd.js.map": "/jade-seka-website/static/js/main.d5faaadd.js.map",
     "453.a77572ee.chunk.js.map": "/jade-seka-website/static/js/453.a77572ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.f01452b9.js"
+    "static/css/main.277a3851.css",
+    "static/js/main.d5faaadd.js"
   ]
 }
