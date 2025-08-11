@@ -1,8 +1,11 @@
 body {
   margin: 0;
+  background-color:#FDEDF0;
+  overflow-x: hidden;
+  color: #2C3607;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',  "HelveticaNeue-Light", 
+    "Helvetica Neue Light", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

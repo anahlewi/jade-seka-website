@@ -1,5 +1,192 @@
-.App {
-  text-align: center;
+/* Responsive styles for LandingPage and HomePage */
+@media (max-width: 900px) {
+  #landing-page-text,
+  .sekasfont-regular {
+    font-size: 2em !important;
+  }
+  .image-context {
+    height: 120px;
+    max-width: 90vw;
+  }
+  .container {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  #landing-page-text,
+  .sekasfont-regular {
+    font-size: 1.2em !important;
+  }
+  .landing-page-button {
+    font-size: 0.6em !important;
+  }
+  .ampersand-main-title{
+    font-size: "50px";
+  }
+
+  .landing-page-input {
+    width: 80% !important;
+  }
+
+  input{
+    font-size: 0.8em !important;
+  }
+
+  input::placeholder {
+    font-size: 0.8em !important;
+  }
+  .image-context {
+    height: 80px;
+    max-width: 98vw;
+  }
+  .container {
+    padding: 0 2px;
+  }
+  .form-container {
+    width: 100%;
+  }
+
+  .password-error {
+    font-size: 0.8em !important;
+  }
+}
+/* Inline nav list for HomePage */
+.nav-inline-list {
+  padding: 0;
+  margin: 0;
+  margin-top: 0.5em;
+  list-style: decimal inside;
+  counter-reset: navlist;
+  display: table;
+}
+ .eb-garamond-regular {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+}
+
+.nav-inline-list li {
+  display: inline-block;
+  margin-right: 0.5em;
+  position: relative;
+  font-family: 'Helvetica Neue', sans-serif;
+  counter-increment: navlist;
+}
+.nav-inline-list li:before {
+  content: "(" counter(navlist) ")";
+  font-weight: bold;
+  margin-right: 0.2em;
+}
+@font-face {
+  font-family: 'Sekasfont-Regular';
+  src: url('./assets/fonts/Sekasfont-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.modal-title {
+  font-family: "sekasfont-regular", sans-serif;
+}
+
+.sekasfont-regular {
+  font-family: 'Sekasfont-Regular', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5em;
+  margin:unset;
+}
+
+.reey-regular {
+  font-family: 'Reey', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ovo-regular {
+  font-family: "Ovo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.center-text{
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  flex-direction: column;
+}
+
+.container {
+  display: flex; /* Makes it a flex container */
+  height: 100vh; /* Optional:  Make the parent container fill the viewport height */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  flex-direction: column;
+}
+
+.image-context{
+  height: 200px;
+}
+
+.cup{
+  transform: rotate(90deg);
+}
+
+.password-error{
+  font-family: 'Times New Roman', Times, serif;
+  color: red;
+  font-size: 1em;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-page-input {
+ display: block;
+ width: 100%;
+ height: 44px;
+ font-size: 1em;
+ color: #0A3F2A;
+  /* color: #2C3607; */ /* Uncomment if you want to use this color */
+ text-align: center;
+ border-radius: 0;
+ border:none;
+ border-bottom: 1px solid #e2e2e2;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+    padding: 0;
+    margin-bottom: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+    font-weight: normal;
+    outline: none;
+    background-color: transparent;
+}
+
+input::placeholder {
+  opacity: 0.5;
+  color: #0A3F2A;
+}
+
+.landing-page-button{
+  display: block;
+  padding: 5px 20px;
+  line-height: 2em;
+  border-radius: 8px;
+  color: #4C815E;
+  font-family: "sekasfont-regular", sans-serif;
+  font-weight: 600;
+  
+  background-color: transparent;
+  border: 1px solid #4C815E;
+  font-size:1em;
+}
+
+.landing-page-button:hover{
+  background-color:#4C815E;
+  color:#e2e2e2;
 }
 
 .App-logo {
