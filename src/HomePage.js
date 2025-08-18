@@ -113,7 +113,7 @@ function HomePage(props) {
         >
           <MenuIcon />
         </IconButton>
-        <Box justifyItems="center" alignItems="center" >
+        <Box justifyItems="center" alignItems="center" sx={{ textAlign: 'center', width: '100%' }}>
           <TitleComponent width={width} />
         </Box>
       </Box>

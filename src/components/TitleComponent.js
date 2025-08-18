@@ -10,10 +10,10 @@ function TitleComponent({ width }) {
     : { fontFamily: 'Reey', fontSize: '24px', color: '#F77F9F' };
   return (
     <>
-      <Typography sx={mainTitleCss}>
+      <Typography alignContent='center' sx={mainTitleCss}>
         Jade <span className="ampersand-main-title" style={{ color: '#F77F9F' }}>&</span> Seka
       </Typography>
-      <Typography mt={width > 600 ? -5 : -2.5} mb={width > 600 ? 2 : 1.5} sx={mainHeadingCss}>
+      <Typography alignContent='center' mt={width > 600 ? -5 : -2.5} mb={width > 600 ? 2 : 1.5} sx={mainHeadingCss}>
         are getting married
       </Typography>
     </>
