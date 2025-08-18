@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/jade-seka-website/static/css/main.277a3851.css",
-    "main.js": "/jade-seka-website/static/js/main.d842c0ba.js",
+    "main.js": "/jade-seka-website/static/js/main.d13f0703.js",
     "static/js/453.a77572ee.chunk.js": "/jade-seka-website/static/js/453.a77572ee.chunk.js",
     "static/media/scheduleTent.png": "/jade-seka-website/static/media/scheduleTent.acf8a5ba6822e4567d47.png",
     "static/media/african-mask.png": "/jade-seka-website/static/media/african-mask.627c3525ef882f67a1ab.png",
@@ -13,11 +13,11 @@
     "static/media/Sekasfont-Regular.woff": "/jade-seka-website/static/media/Sekasfont-Regular.e9f4e776e0bc1955330a.woff",
     "index.html": "/jade-seka-website/index.html",
     "main.277a3851.css.map": "/jade-seka-website/static/css/main.277a3851.css.map",
-    "main.d842c0ba.js.map": "/jade-seka-website/static/js/main.d842c0ba.js.map",
+    "main.d13f0703.js.map": "/jade-seka-website/static/js/main.d13f0703.js.map",
     "453.a77572ee.chunk.js.map": "/jade-seka-website/static/js/453.a77572ee.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.277a3851.css",
-    "static/js/main.d842c0ba.js"
+    "static/js/main.d13f0703.js"
   ]
 }
