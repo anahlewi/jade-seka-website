@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
-import { Modal, Box, Typography, Button } from '@mui/material';
-import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import {  useRef } from 'react';
+import { Modal } from '@mui/material';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ModalComponent = ({ open, onClose, children }) => {
   const contentRef = useRef(null);
-  const { scrollYProgress } = useScroll({target: contentRef});
+
   return (
     <AnimatePresence>
       {open && (
@@ -20,7 +20,6 @@ const ModalComponent = ({ open, onClose, children }) => {
               justifyContent: 'center',
               alignItems: 'center',
               overflow: 'auto',
-
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -30,7 +29,6 @@ const ModalComponent = ({ open, onClose, children }) => {
               ref={contentRef}
               className='ovo-regular'
               style={{
-                scaleX: scrollYProgress,
                 overflowY: 'auto',
                 backgroundColor: '#FDEDF0',
                 padding: '20px',

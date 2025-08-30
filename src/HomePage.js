@@ -10,6 +10,7 @@ import TitleComponent from './components/TitleComponent';
 import MenuIcon from '@mui/icons-material/Menu';
 import useWindowSize from './hooks/useWindowSize';
 import DrawerComponent from './components/DrawerComponent';
+import RSVPForm from './components/RSVPForm';
 
 
 const StyledBadge = styled(Badge)`
@@ -77,6 +78,7 @@ function HomePage(props) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     onClick={img.onClick? img.onClick : () => openModal(img)}
+                    onTouchStart={img.onClick? img.onClick : () => openModal(img)}
                     transition={{ duration: img.transitionDuration || 2 }}
                     {...commonProps}
                   />
@@ -94,7 +96,12 @@ function HomePage(props) {
               badgeInset="14%"
             >
               <Tooltip title={img.name} placement='top'>
-                <img src={img.src} onClick={img.onClick? img.onClick : () => openModal(img)} alt={img.alt || ''} {...commonProps} />
+                <img 
+                  src={img.src} 
+                  onTouchStart={img.onClick? img.onClick : () => openModal(img)}
+                  onClick={img.onClick? img.onClick : () => openModal(img)} 
+                  alt={img.alt || ''} 
+                  {...commonProps} />
               </Tooltip>
             </StyledBadge>
           </Grid>
@@ -130,8 +137,7 @@ function HomePage(props) {
 
         {/* Bottom images row */}
         <Grid container direction="row" justifyContent="center" marginTop={-1} spacing={1}>
-          {renderImages('middle', 2)}
-          {renderImages('bottom', 3)}
+          {renderImages('bottom', 2)}
         </Grid>
 
         {/* Footer */}
@@ -162,10 +168,10 @@ function HomePage(props) {
       {isModalOpen && (
         <ModalComponent open={isModalOpen} onClose={closeModal}>
           <Typography sx={{ fontFamily: 'Sekasfont-Regular' }} variant="h2" marginTop={4} marginBottom={5} gutterBottom>
-            {selectedImage?.modalContent?.title || 'Modal Title'}
+            {selectedImage?.modalContent?.title || ''}
           </Typography>
           <Box marginTop={4} marginBottom={2}>
-            {selectedImage?.modalContent?.description || 'No description available.'}
+            {selectedImage?.modalContent?.description || <RSVPForm onSubmit={closeModal}/>}
           </Box>
         </ModalComponent>
       )}

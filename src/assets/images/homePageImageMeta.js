@@ -8,7 +8,10 @@ import goldRoseImg from '../images/goldenrose.png';
 import discoBallImg from '../images/discoball.png';
 import gingerbreadHouseImg from '../images/gingerbreadhouse.png';
 import scheduleTentImg from '../images/scheduleTent.png';
-import { Grid, Box } from '@mui/material';
+import { Grid, Box, Stack, Modal } from '@mui/material';
+import TTDModalContent from '../../components/TTDModalContent';
+import ModalBoxContainer from '../../components/ModalBoxContainer';
+import ModalBoxContent from '../../components/ModalBoxContent';
 
 const scheduleContentList = [{key:'Tampa Guests', title:'Kwanjula', date:'Saturday, May 2, 2026', location:'Tampa, FL'}, 
     { key:'Uganda Guests', title: 'Kasiki', date: 'Saturday, July 11, 2026', location: 'Entebbe, Uganda'},
@@ -139,20 +142,29 @@ export const homePageImageMetaData = [
             title: 'Travel Requirements',
             description: (
               <>
-                <strong>What you need to get to us:</strong>
-                <ul>
-                  <li>Passport with 6 months validity on arrival date</li>
-                  <li>
-                    Yellow fever card: <a href="https://wwwnc.cdc.gov/travel/yellow-fever-vaccination-clinics/search" target="_blank" rel="noopener noreferrer">Find a clinic</a>
-                  </li>
-                </ul>
-                <strong>Uganda</strong>
+              <ModalBoxContainer title={'General Info'} sx={{ mb: 2 }}>
+                <ModalBoxContent>
+                   <ul>
+                    <li>Passport with 6 months validity on arrival date</li>
+                    <li>
+                      Yellow fever card: <a href="https://wwwnc.cdc.gov/travel/yellow-fever-vaccination-clinics/search" target="_blank" rel="noopener noreferrer">Find a clinic</a>
+                    </li>
+                  </ul>
+                </ModalBoxContent>
+              </ModalBoxContainer>
+
+              <ModalBoxContainer title={'Uganda Info'} sx={{ mb: 2 }}>
+                <ModalBoxContent>
                 <ul>
                   <li>
                     Visa: <a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Uganda.html" target="_blank" rel="noopener noreferrer">Uganda Visa Info</a>
                   </li>
                 </ul>
-                <strong>Tanzania</strong>
+                </ModalBoxContent>
+              </ModalBoxContainer>
+
+              <ModalBoxContainer title={'Tanzania Info'} sx={{ mb: 2 }}>
+                <ModalBoxContent>
                 <ul>
                   <li>
                     Visa: <a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Tanzania.html" target="_blank" rel="noopener noreferrer">Tanzania Visa Info</a>
@@ -161,6 +173,9 @@ export const homePageImageMetaData = [
                     Traveler’s Insurance: <a href="https://inbound.visitzanzibar.go.tz/" target="_blank" rel="noopener noreferrer">Buy Insurance</a>
                   </li>
                 </ul>
+                </ModalBoxContent>
+              </ModalBoxContainer>
+  
               </>
             )
             },
@@ -170,7 +185,7 @@ export const homePageImageMetaData = [
     name: 'Things to Do',
     src: discoBallImg,
     alt: 'clipart image of a disco ball',
-    position: { section: 'middle', grid: { row: 2, col: 1 } },
+    position: { section: 'top', grid: { row: 1, col: 3 } },
     width: 164,
     height: 164,
     vertical:'top', 
@@ -179,62 +194,7 @@ export const homePageImageMetaData = [
     transitionDuration: 3,
     modalContent: {
       title: 'Things to Do',
-      description: (
-        <>
-          <ul>
-            <li>
-              <strong>Tampa</strong>
-              <ul>
-                <li>
-                  <strong>Eat</strong>
-                  <ul>
-                    <li>Forest Hills Grocery for the Certified Hood Classic™ Cuban sandwich or La Segunda for a more upscale version of the sandwich.</li>
-                    <li>Absolutely iconic and delicious vegan and non vegan pizza at Gourmet Pizza Company.</li>
-                    <li>Another Tampa legend, Bern’s Steakhouse.</li>
-                    <li>-insert seafood spot here-</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>See</strong>
-                  <ul>
-                    <li>Visit historical Tampa in Ybor City aka Cigar City.</li>
-                    <li>Lettuce Lake Regional Park for a beautiful experience in Florida nature.</li>
-                    <li>Take a walk down the Hillsborough River via the Tampa Riverwalk with lots to see and do along the way.</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Do</strong>
-                  <ul>
-                    <li>Armature Works at the beginning of the Tampa Riverwalk.</li>
-                    <li>Sparkman Wharf at the end of the Tampa Riverwalk.</li>
-                    <li>Busch Gardens for a fun-fill family day at the amusement park.</li>
-                    <li>If you have the time, take the drive out to our family favorite, the gorgeous North Beach at Fort DeSoto.</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <strong>Zanzibar</strong>
-              <ul>
-                <li>
-                  <strong>See</strong>
-                  <ul>
-                    <li>Stone Town</li>
-                    <li>Spice Market</li>
-                    <li>Jozani Forest</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Do</strong>
-                  <ul>
-                    <li>Snorkeling</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </>
-      )
+      description: <TTDModalContent/>
     }
   },
   {
@@ -242,7 +202,7 @@ export const homePageImageMetaData = [
     name: 'Registry',
     src: goldRoseImg,
     alt: 'gold flower',
-    position: { section: 'middle', grid: { row: 2, col: 2 } },
+    position: { section: 'bottom', grid: { row: 2, col: 1 } },
     width: 124,
     height: 124,
     vertical:'bottom', 
@@ -257,7 +217,7 @@ export const homePageImageMetaData = [
     name: 'Gallery',
     src: marrymeImg,
     alt: 'mouth of grills that say marry me',
-    position: { section: 'bottom', grid: { row: 3, col: 1 } },
+    position: { section: 'bottom', grid: { row: 2, col: 2 } },
     width:168,
     height: 144,
     vertical:'bottom', 
@@ -279,7 +239,7 @@ export const homePageImageMetaData = [
     name: 'FAQs',
     src: gingerbreadHouseImg,
     alt: 'flamingo 4',
-    position: { section: 'bottom', grid: { row: 3, col: 2 } },
+    position: { section: 'bottom', grid: { row: 2, col: 3 } },
     width:169,
     height:127,
     vertical:'bottom',
