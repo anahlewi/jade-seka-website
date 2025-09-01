@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Accordion, AccordionSummary, AccordionDetails, useMediaQuery } from '@mui/material';
+import { Box, Accordion, AccordionSummary, AccordionDetails, useMediaQuery, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function ModalBoxContainer({ children, title, sx = {}, ...props }) {
@@ -17,7 +17,7 @@ export default function ModalBoxContainer({ children, title, sx = {}, ...props }
         ...sx,
       }} {...props}>
         <AccordionSummary sx={{fontFamily:'EB Garamond'}} expandIcon={<ExpandMoreIcon />}>
-          {title}
+          <Typography variant='h6' fontFamily="EB Garamond">{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           {children}
@@ -39,7 +39,7 @@ export default function ModalBoxContainer({ children, title, sx = {}, ...props }
       }}
       {...props}
     >
-      <strong>{title}</strong>
+      <Typography variant="h6" fontFamily="EB Garamond" gutterBottom>{title}</Typography>
       {children}
     </Box>
   );

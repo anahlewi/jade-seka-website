@@ -66,12 +66,12 @@ function HomePage(props) {
         };
         if (img.motion) {
           return (
-            <Grid item marginBottom={3} margin={1} key={img.name}>
-              <StyledBadge
+            <Grid item marginBottom={3} margin={2} key={img.name}>
+              {/* <StyledBadge
                 badgeInset="14%"
                 badgeContent={img.key}
                 anchorOrigin={{ vertical:`${img.vertical}`, horizontal:`${img.horizontal}`}}
-              >
+              > */}
                 <Tooltip marginRight={1} title={img.name} placement='top'>
                   <motion.img
                     src={img.src}
@@ -83,18 +83,21 @@ function HomePage(props) {
                     {...commonProps}
                   />
                 </Tooltip>
-              </StyledBadge>
+              {/* </StyledBadge> */}
+              <Typography sx={{ fontFamily: 'Sekasfont-Regular', textAlign: 'center', marginTop: 1 }} variant="body2">
+                {img.name}
+              </Typography>
             </Grid>
           );
         }
         return (
-          <Grid item marginBottom={3} key={img.name}>
-            <StyledBadge
+          <Grid item marginBottom={3} margin={2} key={img.name}>
+            {/* <StyledBadge
               badgeContent={img.key}
               color="primary"
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
               badgeInset="14%"
-            >
+            > */}
               <Tooltip title={img.name} placement='top'>
                 <img 
                   src={img.src} 
@@ -103,7 +106,10 @@ function HomePage(props) {
                   alt={img.alt || ''} 
                   {...commonProps} />
               </Tooltip>
-            </StyledBadge>
+            {/* </StyledBadge> */}
+            <Typography sx={{ fontFamily: 'Sekasfont-Regular', textAlign: 'center', marginTop: 1 }} variant="body2">
+              {img.name}
+            </Typography>
           </Grid>
         );
       });
@@ -128,11 +134,6 @@ function HomePage(props) {
         {/* Top images row */}
         <Grid container direction="row" justifyContent="center" spacing={1}>
           {renderImages('top', 1)}
-        </Grid>
-
-        {/* middle images row */}
-        <Grid container direction="column" justifyContent="center" marginTop={-1} spacing={1}>
-          {/* You can add more content here if needed */}
         </Grid>
 
         {/* Bottom images row */}
