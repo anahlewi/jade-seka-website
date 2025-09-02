@@ -1,23 +1,29 @@
 {
   "files": {
     "main.css": "/jade-seka-website/static/css/main.d090fe4d.css",
-    "main.js": "/jade-seka-website/static/js/main.40523555.js",
+    "main.js": "/jade-seka-website/static/js/main.68f80c09.js",
     "static/js/453.a77572ee.chunk.js": "/jade-seka-website/static/js/453.a77572ee.chunk.js",
+    "static/media/african-mask.png": "/jade-seka-website/static/media/african-mask.1c2a085b3b5d69122a2f.png",
+    "static/media/goldenrose.png": "/jade-seka-website/static/media/goldenrose.739277ae9d563cb568b5.png",
+    "static/media/gingerbreadhouse.png": "/jade-seka-website/static/media/gingerbreadhouse.9c56966c4bd1c4cceda9.png",
+    "static/media/discoball.png": "/jade-seka-website/static/media/discoball.90efe15e0bcf872e903d.png",
     "static/media/scheduleTent.png": "/jade-seka-website/static/media/scheduleTent.acf8a5ba6822e4567d47.png",
-    "static/media/african-mask.png": "/jade-seka-website/static/media/african-mask.627c3525ef882f67a1ab.png",
-    "static/media/gingerbreadhouse.png": "/jade-seka-website/static/media/gingerbreadhouse.b9222f8dd493c3ca734a.png",
-    "static/media/discoball.png": "/jade-seka-website/static/media/discoball.d29e8637551c0cbab322.png",
-    "static/media/goldenrose.png": "/jade-seka-website/static/media/goldenrose.9e91c746b05967c48e62.png",
-    "static/media/marrymegrills.png": "/jade-seka-website/static/media/marrymegrills.4b3dce12cf4a3409a752.png",
-    "static/media/board.png": "/jade-seka-website/static/media/board.1dd152e0734ed16a46d8.png",
+    "static/media/marrymegrills.png": "/jade-seka-website/static/media/marrymegrills.cfba9a7706f7fc72560c.png",
+    "static/media/board.png": "/jade-seka-website/static/media/board.3b86e00f790ae8116bbc.png",
+    "static/media/african-mask-600w.png": "/jade-seka-website/static/media/african-mask-600w.dea933db145ab20aab9e.png",
+    "static/media/discoball-600w.png": "/jade-seka-website/static/media/discoball-600w.706e73573d76d782eb05.png",
+    "static/media/gingerbreadhouse-600w.png": "/jade-seka-website/static/media/gingerbreadhouse-600w.c24f5b00ab121256d470.png",
+    "static/media/goldenrose-600w.png": "/jade-seka-website/static/media/goldenrose-600w.e4bd2d649a21c38b0e31.png",
+    "static/media/marrymegrills-600w.png": "/jade-seka-website/static/media/marrymegrills-600w.9a3a17c6075329a50705.png",
     "static/media/Sekasfont-Regular.woff": "/jade-seka-website/static/media/Sekasfont-Regular.e9f4e776e0bc1955330a.woff",
+    "static/media/board-600w.png": "/jade-seka-website/static/media/board-600w.99d66fc31a2562d0af75.png",
     "index.html": "/jade-seka-website/index.html",
     "main.d090fe4d.css.map": "/jade-seka-website/static/css/main.d090fe4d.css.map",
-    "main.40523555.js.map": "/jade-seka-website/static/js/main.40523555.js.map",
+    "main.68f80c09.js.map": "/jade-seka-website/static/js/main.68f80c09.js.map",
     "453.a77572ee.chunk.js.map": "/jade-seka-website/static/js/453.a77572ee.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d090fe4d.css",
-    "static/js/main.40523555.js"
+    "static/js/main.68f80c09.js"
   ]
 }
