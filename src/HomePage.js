@@ -110,11 +110,9 @@ function HomePage(props) {
           key: img.name,
           alt: img.alt,
         };
-        // Use srcSet and sizes for responsive images
-        const imgSrc = isMobile? img.mobileSrc: img.src;
         if (img.motion) {
           return (
-            <Grid item marginBottom={3} margin={2} key={img.name}>
+            <Grid item marginBottom={isMobile ? 1 : 4} marginRight={isMobile ? 1 : 6} marginLeft={isMobile ? 1 : 6} key={img.name}>
               <Tooltip marginRight={1} title={img.name} placement='top'>
                 <motion.img
                   src={isMobile? img.mobileSrc: img.src}
@@ -122,6 +120,8 @@ function HomePage(props) {
                   animate={{ opacity: 1 }}
                   onClick={img.onClick? img.onClick : () => openModal(img)}
                   onTouchStart={img.onClick? img.onClick : () => openModal(img)}
+                  className={isMobile? 'none' : 'image-context'}
+                  alt={img.alt || ''}
                   transition={{ duration: img.transitionDuration || 2 }}
                   {...commonProps}
                 />
@@ -133,24 +133,17 @@ function HomePage(props) {
           );
         }
         return (
-          <Grid item marginBottom={3} margin={2} key={img.name}>
+          <Grid item marginBottom={isMobile ? 1 : 4} marginRight={isMobile ? 1 : 6} marginLeft={isMobile ? 1 : 6} key={img.name}>
             <Tooltip title={img.name} placement='top'>
               <img 
                 src={isMobile? img.mobileSrc: img.src}
                 onTouchStart={img.onClick? img.onClick : () => openModal(img)}
-                onClick={img.onClick? img.onClick : () => openModal(img)} 
+                onClick={img.onClick? img.onClick : () => openModal(img)}
+                width={isMobile && img.key === 1? '150' : ''}
+                height={isMobile && img.key === 1? '150' : ''}
+                className={isMobile? 'none' : 'image-context'}
                 alt={img.alt || ''} 
                 {...commonProps} />
-              {/* <picture>
-                <source media="(max-width: 1200w)" srcSet={img.mobileSrc} />
-                <source media="(min-width: 600)" srcSet={img.src} />
-                <img 
-                  src={img.src} 
-                  onTouchStart={img.onClick? img.onClick : () => openModal(img)}
-                  onClick={img.onClick? img.onClick : () => openModal(img)} 
-                  alt={img.alt} 
-                  {...commonProps}/>
-              </picture> */}
             </Tooltip>
             <Typography sx={{ fontFamily: 'Sekasfont-Regular', textAlign: 'center', marginTop: 1 }} variant="body2">
               {img.name}
@@ -175,7 +168,7 @@ function HomePage(props) {
           <TitleComponent width={width} />
         </Box>
       </Box>
-      <Grid container direction="column" justifyContent="center" marginTop={3} alignItems="center">
+      <Grid container direction="column" justifyContent="center" marginTop={6} marginBottom={10} alignItems="center">
         {/* Top images row */}
         <Grid container direction="row" justifyContent="center" spacing={1}>
           {webResponsiveDisplayGridTop()}
@@ -197,15 +190,15 @@ function HomePage(props) {
         <Button
           justifyContent="center"
           onClick={openModal}
+          marginTop={isMobile ? 4 : 6}
           sx={{
             fontFamily: 'Sekasfont-Regular',
             fontSize: 18,
             backgroundColor: '#2C3607',
             color: 'white',
-            width: 100,
+            width: 350,
             height: 35,
             borderRadius: 2,
-            mt: -1
           }}
         >
           RSVP
@@ -220,7 +213,7 @@ function HomePage(props) {
       />
       {isModalOpen && (
         <ModalComponent open={isModalOpen} onClose={closeModal}>
-          <Typography sx={{ fontFamily: 'Sekasfont-Regular' }} variant="h2" marginTop={4} marginBottom={5} gutterBottom>
+          <Typography sx={{ fontFamily: 'Sekasfont-Regular'}} fontSize={isMobile? '1.6em': 'auto'} variant="h2" marginTop={4} marginBottom={5} gutterBottom>
             {selectedImage?.modalContent?.title || ''}
           </Typography>
           <Box marginTop={4} marginBottom={2}>

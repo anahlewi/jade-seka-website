@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -9,7 +8,7 @@ import { Typography } from '@mui/material';
 
 function DrawerComponent({ open, onClose, navItems, onItemClick }) {
   return (
-    <Drawer anchor="left" open={open} onClose={onClose}>
+    <Drawer anchor="left" open={open} onClose={onClose} sx={{ '& .MuiDrawer-paper': { boxSizing: 'border-box', backgroundColor:'#FDEDF0'} }}>
         <Typography variant="h3" sx={{ padding: 2,   fontFamily: "EB Garamond"}}>
           Menu
         </Typography>
@@ -17,7 +16,9 @@ function DrawerComponent({ open, onClose, navItems, onItemClick }) {
         {navItems.map((item, idx) => (
           <ListItem key={item.key || idx} disablePadding>
             <ListItemButton onClick={() => onItemClick && onItemClick(item)}>
-              <ListItemText sx={{ fontFamily:'EB Garamond' }} primary={item.name} />
+              <ListItemText
+                primary={<span style={{ fontFamily: 'Tenor Sans' }}>{item.name}</span>}
+              />
             </ListItemButton>
           </ListItem>
         ))}

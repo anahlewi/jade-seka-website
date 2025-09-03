@@ -119,6 +119,8 @@ export const homePageImageMetaData = [
         name: 'Schedule',
         src: boardImg,
         mobileSrc: boardImg600w,
+        width: 200,
+        height: 200,
         alt: 'message board',
         position: { section: 'top', vertical: 'bottom', horizontal: 'right', grid: { row: 1, col: 1 } },
         modalContent: {
