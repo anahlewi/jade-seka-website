@@ -112,7 +112,7 @@ function HomePage(props) {
         };
         if (img.motion) {
           return (
-            <Grid item marginBottom={isMobile ? 1 : 4} marginRight={isMobile ? 1 : 6} marginLeft={isMobile ? 1 : 6} key={img.name}>
+            <Grid item marginTop={isMobile && img.key === 3 ? -5: 0} marginBottom={isMobile ? 1 : 4} marginRight={isMobile ? 1 : 6} marginLeft={isMobile ? 1 : 6} key={img.name}>
               <Tooltip marginRight={1} title={img.name} placement='top'>
                 <motion.img
                   src={isMobile? img.mobileSrc: img.src}
