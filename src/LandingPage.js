@@ -32,6 +32,7 @@ function LandingPage() {
         console.log(nameInput, 'nameInput');
         setError(false);
         localStorage.setItem('isWeddingGuest', 'true');
+        localStorage.setItem('id', results[0].id);
         localStorage.setItem('guestCities', results[0].Cities);
         navigate('/home');
       }

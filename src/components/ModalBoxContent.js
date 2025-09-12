@@ -10,6 +10,7 @@ export default function ModalBoxContent({ children, sx = {}, ...props }) {
         p: 3,
         flexGrow: 1,
         fontFamily:'Tenor Sans',
+        boxShadow: '0 4px 16px 0 rgba(44, 54, 7, 0.15)',
         ...sx,
       }}
       {...props}

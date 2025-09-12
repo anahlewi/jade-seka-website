@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, useMediaQuery, Typography, Button, Badge, Tooltip, Box, Icon, IconButton, Drawer } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { motion } from 'framer-motion';
 import ModalComponent from './components/ModalComponent';
 import './App.css';
 import { homePageImageMetaData } from './assets/images/homePageImageMeta';
+import { updateRSVPInSheetDB } from './utils/sheetDBApi';
 import TitleComponent from './components/TitleComponent';
 import MenuIcon from '@mui/icons-material/Menu';
 import useWindowSize from './hooks/useWindowSize';
@@ -25,6 +25,7 @@ function HomePage(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const { width } = useWindowSize();
   const isTablet = useMediaQuery('(max-width:900px)');
@@ -105,49 +106,88 @@ function HomePage(props) {
   const renderImages = (section, row) =>
     homePageImageMetaData
       .filter((img) => img.position.section === section && img.position.grid.row === row)
-      .map((img) => {
+      .map((img, idx) => {
         const commonProps = {
           key: img.name,
           alt: img.alt,
         };
-        if (img.motion) {
-          return (
-            <Grid item marginTop={isMobile && img.key === 3 ? -5: 0} marginBottom={isMobile ? 1 : 4} marginRight={isMobile ? 1 : 6} marginLeft={isMobile ? 1 : 6} key={img.name}>
-              <Tooltip marginRight={1} title={img.name} placement='top'>
-                <motion.img
-                  src={isMobile? img.mobileSrc: img.src}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  onClick={img.onClick? img.onClick : () => openModal(img)}
-                  onTouchStart={img.onClick? img.onClick : () => openModal(img)}
-                  className={isMobile? 'none' : 'image-context'}
-                  alt={img.alt || ''}
-                  transition={{ duration: img.transitionDuration || 2 }}
-                  {...commonProps}
-                />
-              </Tooltip>
-              <Typography sx={{ fontFamily: 'Sekasfont-Regular', textAlign: 'center', marginTop: 1 }} variant="body2">
-                {img.name}
-              </Typography>
-            </Grid>
-          );
-        }
+        const handleMouseEnter = () => setHoveredIndex(`${section}-${row}-${idx}`);
+        const handleMouseLeave = () => setHoveredIndex(null);
+        const isHovered = hoveredIndex === `${section}-${row}-${idx}`;
         return (
-          <Grid item marginBottom={isMobile ? 1 : 4} marginRight={isMobile ? 1 : 6} marginLeft={isMobile ? 1 : 6} key={img.name}>
-            <Tooltip title={img.name} placement='top'>
-              <img 
-                src={isMobile? img.mobileSrc: img.src}
-                onTouchStart={img.onClick? img.onClick : () => openModal(img)}
-                onClick={img.onClick? img.onClick : () => openModal(img)}
-                width={isMobile && img.key === 1? '150' : ''}
-                height={isMobile && img.key === 1? '150' : ''}
-                className={isMobile? 'none' : 'image-context'}
-                alt={img.alt || ''} 
-                {...commonProps} />
-            </Tooltip>
-            <Typography sx={{ fontFamily: 'Sekasfont-Regular', textAlign: 'center', marginTop: 1 }} variant="body2">
-              {img.name}
-            </Typography>
+          <Grid item marginBottom={isMobile ? 1 : 6} marginRight={isMobile ? 1 : 6} marginLeft={isMobile ? 1 : 6} key={img.name}>
+            {!isTablet && !isMobile ? (
+              <Box
+                sx={{
+                  position: 'relative',
+                  width: isMobile && img.key === 1 ? 150 : '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  zIndex: isHovered ? 1001 : 1,
+                  '&:hover .image-label': {
+                    opacity: 1,
+                    transition: 'opacity 0.3s',
+                  },
+                }}
+              >
+                <img 
+                  className={isMobile ? 'none' : 'image-context'}
+                  src={isMobile ? img.mobileSrc : img.src}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onTouchStart={img.onClick ? img.onClick : () => openModal(img)}
+                  onClick={img.onClick ? img.onClick : () => openModal(img)}
+                  width={isMobile && img.key === 1 ? '150' : '100%'}
+                  height={isMobile && img.key === 1 ? '150' : 'auto'}
+                  style={{ zIndex: isHovered ? 1001 : 1, display: 'block'}}
+                  alt={img.alt || ''}
+                  {...commonProps} />
+                <Typography
+                  className="image-label"
+                  sx={{
+                    fontFamily: 'Sekasfont-Regular',
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: isHovered ? 1002 : 2,
+                    fontSize: 30,
+                    textAlign: 'center',
+                    overflowWrap: 'word-break',
+                    color: 'white',
+                    textShadow: '1px 1px 2px black',
+                    pointerEvents: 'none',
+                    width: '90%',
+                    opacity: 0,
+                    transition: 'opacity 0.3s',
+                  }}
+                  variant="body1"
+                >
+                  {img.name}
+                </Typography>
+              </Box>
+            ) : (
+              <>
+                <img 
+                  className={isMobile ? 'none' : 'image-context'}
+                  src={isMobile ? img.mobileSrc : img.src}
+                  onTouchStart={img.onClick ? img.onClick : () => openModal(img)}
+                  onClick={img.onClick ? img.onClick : () => openModal(img)}
+                  width={isMobile && img.key === 1 ? '150' : '100%'}
+                  height={isMobile && img.key === 1 ? '150' : 'auto'}
+                  style={{ display: 'block', marginTop: isMobile && img.key === 3 ? -73 : 0 }}
+                  alt={img.alt || ''}
+                  {...commonProps} />
+                <Typography
+                  className="image-label"
+                  sx={{ fontFamily: 'Sekasfont-Regular', textAlign: 'center', marginBottom: 3, fontSize: '1em' }}
+                  variant="body2"
+                >
+                  {img.name}
+                </Typography>
+              </>
+            )}
           </Grid>
         );
       });
@@ -217,9 +257,12 @@ function HomePage(props) {
             {selectedImage?.modalContent?.title || ''}
           </Typography>
           <Box marginTop={4} marginBottom={2}>
-            {selectedImage?.modalContent?.description || <RSVPForm onSubmit={closeModal}/>}
+            {selectedImage?.modalContent?.description || <RSVPForm onSubmit={updateRSVPInSheetDB}/>}
           </Box>
         </ModalComponent>
+      )}
+      {hoveredIndex && !isTablet && (
+        <Box className="image-overlay" sx={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', bgcolor: 'rgba(0, 0, 0, 0.7)', zIndex: 1000, transition: 'opacity 1s', opacity: 1, pointerEvents: 'auto' }} />
       )}
     </div>
   );

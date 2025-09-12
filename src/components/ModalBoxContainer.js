@@ -10,9 +10,9 @@ export default function ModalBoxContainer({ children, title, sx = {}, ...props }
     return (
       <Accordion sx={{
         borderRadius: 1,
-        backgroundColor: 'rgba(247, 127, 159, 0.5)',
+        backgroundColor: 'rgba(76, 129, 94, 0.5)',
         color: '#2C3607',
-        boxShadow: 'none',
+        boxShadow: '0 4px 16px 0 rgba(44, 54, 7, 0.15)',
         mb: 2,
         ...sx,
       }} {...props}>
@@ -29,12 +29,13 @@ export default function ModalBoxContainer({ children, title, sx = {}, ...props }
     <Box
       sx={{
         borderRadius: 4,
-        backgroundColor: 'rgba(247, 127, 159, 0.5)',
+        backgroundColor: 'rgba(76, 129, 94, 0.5)',
         p: 3,
         color: '#2C3607',
         mb: 2,
         flexGrow: 1,
         fontFamily:'EB Garamond',
+        boxShadow: '0 4px 16px 0 rgba(44, 54, 7, 0.15)',
         ...sx,
       }}
       {...props}

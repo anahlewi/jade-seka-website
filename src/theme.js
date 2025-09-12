@@ -10,6 +10,12 @@ const theme = createTheme({
           fontWeight: 500,
           color:'#2C3607'
         },
+        asterisk: {
+          color: 'red',
+          '&.Mui-error': { // Also apply red color when there's an error
+            color: 'red',
+          },
+        },
       },
     },
     MuiOutlinedInput: {
