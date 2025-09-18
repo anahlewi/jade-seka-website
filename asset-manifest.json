@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/jade-seka-website/static/css/main.95c5042d.css",
-    "main.js": "/jade-seka-website/static/js/main.e60562a9.js",
+    "main.css": "/jade-seka-website/static/css/main.32d53926.css",
+    "main.js": "/jade-seka-website/static/js/main.483f52c6.js",
     "static/js/453.a77572ee.chunk.js": "/jade-seka-website/static/js/453.a77572ee.chunk.js",
     "static/media/african-mask.png": "/jade-seka-website/static/media/african-mask.1c2a085b3b5d69122a2f.png",
     "static/media/goldenrose.png": "/jade-seka-website/static/media/goldenrose.739277ae9d563cb568b5.png",
@@ -18,12 +18,12 @@
     "static/media/Sekasfont-Regular.woff": "/jade-seka-website/static/media/Sekasfont-Regular.e9f4e776e0bc1955330a.woff",
     "static/media/board-600w.png": "/jade-seka-website/static/media/board-600w.99d66fc31a2562d0af75.png",
     "index.html": "/jade-seka-website/index.html",
-    "main.95c5042d.css.map": "/jade-seka-website/static/css/main.95c5042d.css.map",
-    "main.e60562a9.js.map": "/jade-seka-website/static/js/main.e60562a9.js.map",
+    "main.32d53926.css.map": "/jade-seka-website/static/css/main.32d53926.css.map",
+    "main.483f52c6.js.map": "/jade-seka-website/static/js/main.483f52c6.js.map",
     "453.a77572ee.chunk.js.map": "/jade-seka-website/static/js/453.a77572ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.95c5042d.css",
-    "static/js/main.e60562a9.js"
+    "static/css/main.32d53926.css",
+    "static/js/main.483f52c6.js"
   ]
 }
