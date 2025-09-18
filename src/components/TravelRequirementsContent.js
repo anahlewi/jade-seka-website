@@ -2,17 +2,22 @@ import ModalBoxContainer from './ModalBoxContainer';
 import ModalBoxContent from './ModalBoxContent';
 import Stack from '@mui/material/Stack';
 import { useMediaQuery } from '@mui/material';
+import { getGuestEventConfig } from '../utils/guestEventConfig';
 
 export default function TravelRequirementsContent() {
   const isTablet = useMediaQuery('(max-width:900px)');
-  
+  const guestConfig = getGuestEventConfig();
+  const allowedEvents = guestConfig.config.flatMap(c => c.events);
+
   const locations = [
     {
       name: 'Tampa Requirements',
+      key: 'Kwanjula',
       content: 'A Real ID is now required for domestic travel. Please ensure you have this new document prior to travel if you do not have a passport that can be used instead.',
     },
     {
       name: 'Uganda Requirements',
+      key: 'Kasiki',
       content: [
         {
           items: [
@@ -26,6 +31,7 @@ export default function TravelRequirementsContent() {
     },
     {
       name: 'Zanzibar Requirements',
+      key: 'Wedding',
       content: [
         {
             items: ['Passport with 6 months validity on arrival date','Tourist Visa', 'Traveler’s Insurance', 'Additional information regarding travel to Tanzania',]
@@ -54,7 +60,7 @@ export default function TravelRequirementsContent() {
 
   return (
     <>
-      {locations.map((location) => (
+      {locations.filter(location => allowedEvents.includes(location.key)).map((location) => (
         <ModalBoxContainer title={location.name} key={location.name}>
           <Stack direction={'column'} spacing={2} sx={{ mb: 2 }}>
             <ModalBoxContent>

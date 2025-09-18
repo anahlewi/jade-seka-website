@@ -2,7 +2,10 @@ import React from 'react';
 import ModalBoxContent from './ModalBoxContent';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { useMediaQuery } from '@mui/material';
 import ModalBoxContainer from './ModalBoxContainer';
+
+
 
 const eras = [
   {
@@ -40,22 +43,41 @@ const eras = [
 ];
 
 export default function OurStoryModalContent() {
+  const isMobile = useMediaQuery('(max-width:900px)');
+
   return (
-    <Stack>
+    <Stack sx={isMobile?{display:'flex', width:'95vw'}:{width:'inherit'}}>
       <Typography variant="body1" fontFamily="Tenor Sans" marginBottom={5} gutterBottom> Jade and Seka met the way most millennials meet, dating apps aside, at work. The two developed a strong friendship over the years whose chemistry would cross over and sow the early seeds of a romance. Previous partners and a pandemic initially pulled these star-crossed lovers apart, however, eventually the stars finally aligned for them to make their romance work. </Typography> 
       {eras.map((era, idx) => (
          <>
           <Typography variant="h5" marginBottom={-1} fontFamily="EB Garamond" fontWeight={400} gutterBottom>{era.title}</Typography>
           <Typography variant="h6" marginBottom={-1} fontFamily="EB Garamond" fontWeight={200} gutterBottom>{era.altTitle}</Typography>
           <Typography variant="h7" marginBottom={4} fontFamily="EB Garamond" fontWeight={200} fontStyle='italic' gutterBottom>{era.subtitle}</Typography>
-          <Stack direction="row" spacing={2} marginBottom={2} justifyContent="center" alignItems="center" flexWrap={'wrap'}>
+          <Stack direction="row" sx={isMobile?{display:'flex', width:'95vw'}:{}} spacing={2} marginBottom={2} justifyContent="center" flexWrap={'wrap'}>
             {era.photos.map((photo, pIdx) => (
-              <img src={photo} alt="" style={{ height:250}} key={pIdx} />
+              <img 
+              src={photo} 
+              alt="" 
+              style={isMobile?{
+                height:250,
+                display: 'block',
+                marginLeft: 'auto',
+                marginRight: 'auto'
+                }:{height:250}} key={pIdx} />
             ))}
           </Stack>
-          <Typography variant="caption" marginBottom={4} display="block" align="center" fontFamily={'Tenor Sans'}gutterBottom>{era.caption}</Typography>
-          <Typography variant="body1" sx={{ mb: 4, fontFamily:'Tenor Sans' }}>{era.description}</Typography>
-
+          <Typography 
+                variant="caption" 
+                marginBottom={4} 
+                sx={isMobile?
+                    {display:'flex', 
+                    textAlign:'center', 
+                    fontFamily:'Tenor Sans'}:
+                    {textAlign:'center', 
+                    fontFamily:'Tenor Sans'}} 
+                gutterBottom>{era.caption}
+            </Typography>
+          <Typography variant="body1" sx={{ mb: 4, fontFamily:'Tenor Sans', }}>{era.description}</Typography>
           </>
       ))}
     </Stack>

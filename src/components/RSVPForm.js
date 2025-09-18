@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { Box, Typography, Stack, TextField, RadioGroup, FormControlLabel, Radio, FormControl, FormLabel, Select, MenuItem, InputLabel, Button, Checkbox } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { useMediaQuery } from '@mui/material';
 import { getGuestEventConfig } from '../utils/guestEventConfig';
 import RSVPFormSubmitMessage from './RSVPFormSubmitMessage';
+import { getRSVPStatus } from '../utils/sheetDBApi';
+import RSVPFormFields from './RSVPFormFields';
 
 
 export default function RSVPForm({ onSubmit }) {
@@ -17,8 +19,22 @@ export default function RSVPForm({ onSubmit }) {
     dietary: '',
     note: '',
   });
+
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
+  const [formError, setFormError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
+  const [alreadyRSVPed, setAlreadyRSVPed] = useState(localStorage.getItem('RSVPStatus'));
+  const isMobile = useMediaQuery('(max-width:900px)');
+
+
+  const requiredFields = [
+    { name: 'firstName', label: 'First Name' },
+    { name: 'lastName', label: 'Last Name' },
+    { name: 'dietary', label: 'Dietary Restrictions' },
+    { name: 'events', label: 'Event(s) Attending' },
+    { name: 'plusOne', label: 'Plus One' },
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,15 +43,30 @@ export default function RSVPForm({ onSubmit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let errors = {};
+    for (const field of requiredFields) {
+      if (field.name === 'events' && form.events.length === 0) {
+        errors.events = true;
+      } else if (!form[field.name]) {
+        errors[field.name] = true;
+      }
+    }
+    setFieldErrors(errors);
+    if (Object.keys(errors).length > 0) return;
+    setFormError('');
     try {
       await onSubmit(form); // parent should return a promise
       setSubmitted(true);
+      localStorage.setItem('RSVPStatus', 'Yes');
+      setAlreadyRSVPed(true);
       setError(false);
     } catch {
       setSubmitted(false);
       setError(true);
     }
   };
+
+
 
   if (submitted) {
     return <RSVPFormSubmitMessage success={true} error={false} onClose={() => setSubmitted(false)} />;
@@ -44,103 +75,18 @@ export default function RSVPForm({ onSubmit }) {
     return <RSVPFormSubmitMessage success={false} error={true} onClose={() => setError(false)} />;
   }
 
-
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%', maxWidth: 400, mx: 'auto' }}>
-      <Typography variant="h3" sx={{ fontFamily: 'Sekasfont-Regular', mb: 3, textAlign: 'center' }}>
-        RSVP
-      </Typography>
-      <FormLabel sx={{fontFamily:'EB Garamond'}} required>Full Name</FormLabel>
-      <Stack direction={'row'} spacing={2} sx={{ mb: 2, fontFamily:'EB Garamond'}}>
-        <TextField
-        name="firstName"
-        value={form.firstName}
-        onChange={handleChange}
-        placeholder='First'
-        fullWidth
-        required
-        sx={{ mb: 2 }}
-        />
-        <TextField
-            name="lastName"
-            value={form.lastName}
-            onChange={handleChange}
-            placeholder='Last'
-            fullWidth
-            required
-            sx={{ mb: 2 }}
-        />
-      </Stack>
-      
-      <Stack direction={'column'} spacing={2} sx={{ mb: 2, fontFamily:'EB Garamond'}}>
-    
-      <FormControl component="fieldset" sx={{ mb: 2 }} required>
-        <FormLabel component="legend">Select the event(s) you will be attending:</FormLabel>
-        <RadioGroup
-          row
-          name="plusOne"
-          value={form.plusOne}
-          onChange={handleChange}
-        >
-            {eventOptions.map((event) => (
-              <FormControlLabel key={event} control={<Checkbox />} label={event} value={event} checked={form.events.includes(event)} onChange={(e) => {
-                const newEvents = e.target.checked
-                  ? [...form.events, event]
-                  : form.events.filter(ev => ev !== event);
-                setForm((prev) => ({ ...prev, events: newEvents }));
-              }} />
-            ))} 
-
-        </RadioGroup>
-      </FormControl>
-
-       <FormControl component="fieldset" sx={{ mb: 2 }} required>
-        <FormLabel component="legend">Do you intend to bring a plus one?</FormLabel>
-        <RadioGroup
-          row
-          name="plusOne"
-          value={form.plusOne}
-          onChange={handleChange}
-        >
-          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
-        </RadioGroup>
-      </FormControl>
-
-       <FormControl component="fieldset" sx={{ mb: 2}}>
-        <FormLabel sx={{fontFamily:'EB Garamond'}} >If yes, please provide their full name:</FormLabel>
-        <TextField
-            name="plusOneName"
-            value={form.plusOneName}
-            onChange={handleChange}
-            fullWidth
-        />
-      </FormControl>
-    
-      <FormControl fullWidth sx={{ mb: 2 }} required>
-        <FormLabel sx={{fontFamily:'EB Garamond'}} >Any dietary restrictions?</FormLabel>
-        <TextField
-            name="dietary"
-            value={form.dietary}
-            onChange={handleChange}
-            fullWidth
-        />
-      </FormControl>
-
-       <FormControl fullWidth sx={{ mb: 2 }}>
-        <FormLabel sx={{fontFamily:'EB Garamond'}} >Would you like to send a note to the bride and groom?</FormLabel>
-        <TextField
-            name="note"
-            value={form.note}
-            onChange={handleChange}
-            fullWidth
-        />
-      </FormControl>
-      </Stack>
-    
-      <Button type="submit" variant="contained" sx={{ backgroundColor: '#2C3607', color: 'white', fontFamily: 'Sekasfont-Regular', mt: 2, width: '100%' }}>
-        Submit
-      </Button>
-    </Box>
+    alreadyRSVPed ?
+    (<RSVPFormSubmitMessage success={true} error={false} />): (
+      <RSVPFormFields
+        form={form}
+        fieldErrors={fieldErrors}
+        eventOptions={eventOptions}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        isMobile={isMobile}
+        alreadyRSVPed={alreadyRSVPed}
+      />
+    )
   );
 }

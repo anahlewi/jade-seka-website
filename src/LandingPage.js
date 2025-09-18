@@ -34,6 +34,8 @@ function LandingPage() {
         localStorage.setItem('isWeddingGuest', 'true');
         localStorage.setItem('id', results[0].id);
         localStorage.setItem('guestCities', results[0].Cities);
+        localStorage.setItem('RSVPStatus', results[0].RSVP);
+
         navigate('/home');
       }
       else {

@@ -7,14 +7,18 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocationPinIcon from '@mui/icons-material/LocationPin';
+import { getGuestEventConfig } from '../utils/guestEventConfig';
 
 
 export default function TTDModalContent() {
-  const isTablet = useMediaQuery('(max-width:900px)');
-  
+  const isTablet = useMediaQuery('(max-width:900px)');  
+  const guestConfig = getGuestEventConfig();
+  const allowedEvents = guestConfig.config.flatMap(c => c.events);
+
   const locations = [
     {
       name: 'Tampa, Florida (April 30 - May 2)',
+      key: 'Kwanjula',
       sections: [
         {
             date: 'April 30, 2026',
@@ -37,6 +41,7 @@ export default function TTDModalContent() {
     },
     {
       name: 'Uganda (July 8 - 13)',
+      key:'Kasiki',
       sections: [
         {
             date: 'July 8, 2026',
@@ -62,6 +67,7 @@ export default function TTDModalContent() {
     },
     {
       name: 'Zanzibar (July 14 - 20)',
+      key: 'Wedding',
       sections: [
         {
             date: 'July 14, 2026',
@@ -105,13 +111,17 @@ export default function TTDModalContent() {
 
   return (
     <>
-      {locations.map((location) => (
+      {locations.filter(location => allowedEvents.includes(location.key)).map((location) => (
         <Accordion key={location.name} sx={{
-        borderRadius: 1,
-        backgroundColor: 'rgba(76, 129, 94, 0.5)',
-        color: '#2C3607',
-        boxShadow: 'none',
-        mb: 2,
+            borderRadius: 1,
+            backgroundColor: 'rgba(76, 129, 94, 0.5)',
+            color: '#2C3607',
+            boxShadow: 'none',
+            mb: 2,
+            width: !isTablet ? undefined : '95vw',
+            maxWidth: !isTablet ? undefined : '95vw',
+            left: 0,
+            position: !isTablet ? undefined : 'relative',
       }}>
         <AccordionSummary sx={{fontFamily:'EB Garamond'}} expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' fontFamily="EB Garamond">

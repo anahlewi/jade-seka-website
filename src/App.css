@@ -207,6 +207,10 @@ input::placeholder {
   color:#e2e2e2;
 }
 
+.close-button-modal:hover{
+  color:#4C815E;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

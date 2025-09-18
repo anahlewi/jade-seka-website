@@ -1,15 +1,18 @@
-
 import ModalBoxContainer from './ModalBoxContainer';
 import ModalBoxContent from './ModalBoxContent';
 import Stack from '@mui/material/Stack';
 import { useMediaQuery } from '@mui/material';
+import { getGuestEventConfig } from '../utils/guestEventConfig';
 
 export default function TTDModalContent() {
   const isTablet = useMediaQuery('(max-width:900px)');
-  
+  const guestConfig = getGuestEventConfig();
+  const allowedEvents = guestConfig.config.flatMap(c => c.events);
+
   const locations = [
     {
       name: 'Tampa',
+      key: 'Kwanjula',
       sections: [
         {
           title: 'Eat',
@@ -41,6 +44,7 @@ export default function TTDModalContent() {
     },
     {
       name: 'Zanzibar',
+      key: 'Wedding',
       sections: [
         {
           title: 'See',
@@ -56,7 +60,7 @@ export default function TTDModalContent() {
 
   return (
     <>
-      {locations.map((location) => (
+      {locations.filter(location => allowedEvents.includes(location.key)).map((location) => (
         <ModalBoxContainer title={location.name} key={location.name}>
           <Stack direction={isTablet? 'column': 'row'} spacing={2} sx={{ mb: 2 }}>
             {location.sections.map((section) => (

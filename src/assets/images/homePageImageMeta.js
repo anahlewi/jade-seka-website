@@ -86,7 +86,7 @@ export const homePageImageMetaData = [
     position: { section: 'bottom', grid: { row: 2, col: 1 } },
     vertical:'bottom', 
     horizontal:'left',
-    onClick: ()=>{window.location.href='https://www.honeyfund.com/site/freely-sekanwagi-07-18-2026';},
+    onClick: ()=>{window.open('https://www.honeyfund.com/site/freely-sekanwagi-07-18-2026', '_blank');},
     motion: true,
     transitionDuration: 2
   },

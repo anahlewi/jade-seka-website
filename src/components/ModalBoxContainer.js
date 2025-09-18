@@ -4,7 +4,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function ModalBoxContainer({ children, title, sx = {}, ...props }) {
   // Tablet breakpoint (md = 900px)
-  const isTablet = useMediaQuery('(max-width:900px)');
+  const isTablet = useMediaQuery('(max-width:1200px)');
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   if (isTablet) {
     return (
@@ -14,6 +15,10 @@ export default function ModalBoxContainer({ children, title, sx = {}, ...props }
         color: '#2C3607',
         boxShadow: '0 4px 16px 0 rgba(44, 54, 7, 0.15)',
         mb: 2,
+        width: isMobile? '95vw': '97.5vw',
+        maxWidth: isMobile? '95vw': '97.5vw',
+        left: 0,
+        position: 'relative',
         ...sx,
       }} {...props}>
         <AccordionSummary sx={{fontFamily:'EB Garamond'}} expandIcon={<ExpandMoreIcon />}>

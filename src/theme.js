@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+
+
   components: {
     MuiFormLabel: {
       styleOverrides: {
@@ -8,7 +10,10 @@ const theme = createTheme({
           fontFamily: 'EB Garamond, serif',
           fontSize: '1.1rem',
           fontWeight: 500,
-          color:'#2C3607'
+          color:'#2C3607',
+        '&.Mui-focused': {
+          color: '#0A180F',
+        }
         },
         asterisk: {
           color: 'red',
@@ -16,6 +21,7 @@ const theme = createTheme({
             color: 'red',
           },
         },
+
       },
     },
     MuiOutlinedInput: {
