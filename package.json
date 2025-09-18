@@ -1,7 +1,7 @@
 {
   "name": "jade-seka-website",
   "version": "0.1.0",
-  "homepage": "http://www.jadeandseka.com/",
+  "homepage": "www.jadeandseka.com/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
