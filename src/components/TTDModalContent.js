@@ -18,7 +18,7 @@ export default function TTDModalContent() {
         {
           title: 'Eat',
           items: [
-            { text: 'Forest Hills Grocery', url: 'https://foresthillsgrocery.com/', description: 'Forest Hills Grocery for the Certified Hood Classic™ Cuban sandwich.' },
+            { text: 'Forest Hills Grocery', url: 'maps.app.goo.gl/2Wk7x2y5CXeuxjJo6', description: 'Forest Hills Grocery for the Certified Hood Classic™ Cuban sandwich.' },
             { text: 'La Segunda', url: 'https://www.lasegundabakery.com/', description: ' La Segunda for a more upscale version of the sandwich.' },
             { text: 'Gourmet Pizza Company', url: 'https://gourmetpizza-company.com/', description: 'Absolutely iconic and delicious vegan and non vegan pizza Gourment Pizza Company.' },
             { text: 'Bern’s Steakhouse', url: 'https://bernssteakhouse.com/', description: 'Another Tampa legend, Bern’s Steakhouse.' },
