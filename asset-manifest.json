@@ -1,13 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.23f860a5.css",
-    "main.js": "/static/js/main.35f5fe69.js",
+    "main.js": "/static/js/main.42d9587b.js",
     "static/js/453.a77572ee.chunk.js": "/static/js/453.a77572ee.chunk.js",
     "static/media/african-mask.png": "/static/media/african-mask.1c2a085b3b5d69122a2f.png",
     "static/media/goldenrose.png": "/static/media/goldenrose.739277ae9d563cb568b5.png",
     "static/media/gingerbreadhouse.png": "/static/media/gingerbreadhouse.9c56966c4bd1c4cceda9.png",
     "static/media/discoball.png": "/static/media/discoball.90efe15e0bcf872e903d.png",
-    "static/media/scheduleTent.png": "/static/media/scheduleTent.acf8a5ba6822e4567d47.png",
     "static/media/marrymegrills.png": "/static/media/marrymegrills.cfba9a7706f7fc72560c.png",
     "static/media/board.png": "/static/media/board.3b86e00f790ae8116bbc.png",
     "static/media/african-mask-600w.png": "/static/media/african-mask-600w.dea933db145ab20aab9e.png",
@@ -19,11 +18,11 @@
     "static/media/board-600w.png": "/static/media/board-600w.99d66fc31a2562d0af75.png",
     "index.html": "/index.html",
     "main.23f860a5.css.map": "/static/css/main.23f860a5.css.map",
-    "main.35f5fe69.js.map": "/static/js/main.35f5fe69.js.map",
+    "main.42d9587b.js.map": "/static/js/main.42d9587b.js.map",
     "453.a77572ee.chunk.js.map": "/static/js/453.a77572ee.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.23f860a5.css",
-    "static/js/main.35f5fe69.js"
+    "static/js/main.42d9587b.js"
   ]
 }
