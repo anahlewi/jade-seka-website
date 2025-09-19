@@ -10,7 +10,7 @@ export async function updateRSVPInSheetDB(form) {
       },
       body: JSON.stringify({ data: {
         'Name': form.firstName + ' ' + form.lastName,
-        'RSVP': form.attending,
+        'RSVP': form.events.includes('None') ? "Can't Attend" : 'Yes',
         'Plus One?': form.plusOne,
         'Plus One Name': form.plusOneName,
         'Events': form.events.join(', '),

@@ -12,7 +12,6 @@ export default function RSVPForm({ onSubmit }) {
     id: localStorage.getItem('id') || '',
     firstName: '',
     lastName: '',
-    attending: '',
     plusOne: '',
     plusOneName: '',
     events: [],

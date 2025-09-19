@@ -59,19 +59,14 @@ export default function RSVPFormFields({
       <Stack direction={'column'} spacing={2} sx={{ mb: 2, fontFamily: 'EB Garamond' }}>
         <FormControl component="fieldset" sx={{ mb: 2 }} required error={false}>
           <FormLabel component="legend">Select the event(s) you will be attending:</FormLabel>
-          <RadioGroup
-            row
-            name="events"
-            value={form.events}
-            onChange={handleChange}
-          >
+          <Box sx={{ display: 'flex', flexDirection: 'row' }}>
             {eventOptions.map((event) => (
               <FormControlLabel
                 key={event}
                 control={
                   <Checkbox
                     sx={{ color:'#F77F9F', '&.Mui-checked': { color: '#F77F9F' } }}
-                    disabled={form.events.includes('None')}
+                    disabled={form.events.includes("None")}
                   />
                 }
                 label={event}
@@ -86,25 +81,24 @@ export default function RSVPFormFields({
               />
             ))}
             <FormControlLabel
-              key='none'
+              key="None"
               control={
                 <Checkbox
                   sx={{ color:'#F77F9F', '&.Mui-checked': { color: '#F77F9F' } }}
-                  checked={form.events.includes('None')}
+                  checked={form.events.includes("None")}
                 />
               }
-              label='None'
-              value='None'
+              label="None"
+              value="None"
               onChange={(e) => {
                 if (e.target.checked) {
-                  handleChange({ target: { name: 'events', value: ['None'] } });
+                  handleChange({ target: { name: 'events', value: ["None"] } });
                 } else {
                   handleChange({ target: { name: 'events', value: [] } });
                 }
               }}
             />
-
-          </RadioGroup>
+          </Box>
           {fieldErrors.events && (
             <Typography color="error" sx={{ mt: -1, textAlign: 'left', fontFamily: 'EB Garamond' }}>
               Please select the event(s) you plan to attend
@@ -159,7 +153,7 @@ export default function RSVPFormFields({
           />
         </FormControl>
       </Stack>
-      <Button type="submit" variant="contained" sx={{ backgroundColor: '#2C3607', color: 'white', fontFamily: 'Sekasfont-Regular', mt: 2, width: '100%' }}>
+      <Button type="submit" variant="contained" sx={{ backgroundColor: '#2C3607', color: 'white', fontFamily: 'Sekasfont-Regular', fontSize:'1.2em',  mt: 2, width: '100%' }}>
         Submit
       </Button>
     </Box>
