@@ -1,5 +1,4 @@
-import React from 'react';
-import { Box, Typography, Stack, TextField, RadioGroup, FormControlLabel, Radio, FormControl, FormLabel, Button, Checkbox, useMediaQuery } from '@mui/material';
+import { Box, Typography, Stack, TextField, RadioGroup, FormControlLabel, Radio, FormControl, FormLabel, Button, Checkbox } from '@mui/material';
 
 export default function RSVPFormFields({
   form,
@@ -40,7 +39,16 @@ export default function RSVPFormFields({
           onChange={handleChange}
           placeholder='First'
           fullWidth
-          sx={{ mb: 2 }}
+          sx={{
+            mb: 2,
+            '& .MuiInputBase-input': { fontFamily: 'EB Garamond' },
+            '& .MuiInputBase-input.Mui-disabled': {
+              borderColor: '#F77F9F',
+              WebkitTextStrokeColor: '#F77F9F',
+              WebkitTextFillColor:' #F77F9F', // ensures color applies in Safari
+            }
+          }}
+          disabled={!!form.firstName}
         />
         <TextField
           name="lastName"
@@ -49,7 +57,14 @@ export default function RSVPFormFields({
           onChange={handleChange}
           placeholder='Last'
           fullWidth
-          sx={{ mb: 2 }}
+          sx={{
+            mb: 2,
+            '& .MuiInputBase-input': { fontFamily: 'EB Garamond' },
+            '& .MuiInputBase-input.Mui-disabled': {
+              WebkitTextFillColor:' #F77F9F', // ensures color applies in Safari
+            }
+          }}
+          disabled={!!form.lastName}
         />
       </Stack>
       {fieldErrors.firstName && fieldErrors.lastName && (
@@ -59,7 +74,7 @@ export default function RSVPFormFields({
       <Stack direction={'column'} spacing={2} sx={{ mb: 2, fontFamily: 'EB Garamond' }}>
         <FormControl component="fieldset" sx={{ mb: 2 }} required error={false}>
           <FormLabel component="legend">Select the event(s) you will be attending:</FormLabel>
-          <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
             {eventOptions.map((event) => (
               <FormControlLabel
                 key={event}
@@ -67,17 +82,16 @@ export default function RSVPFormFields({
                   <Checkbox
                     sx={{ color:'#F77F9F', '&.Mui-checked': { color: '#F77F9F' } }}
                     disabled={form.events.includes("None")}
+                    checked={form.events.includes(event)}
+                    onChange={(e) => {
+                      const newEvents = e.target.checked
+                        ? [...form.events, event]
+                        : form.events.filter(ev => ev !== event);
+                      handleChange({ target: { name: 'events', value: newEvents } });
+                    }}
                   />
                 }
                 label={event}
-                value={event}
-                checked={form.events.includes(event)}
-                onChange={(e) => {
-                  const newEvents = e.target.checked
-                    ? [...form.events, event]
-                    : form.events.filter(ev => ev !== event);
-                  handleChange({ target: { name: 'events', value: newEvents } });
-                }}
               />
             ))}
             <FormControlLabel
@@ -86,17 +100,16 @@ export default function RSVPFormFields({
                 <Checkbox
                   sx={{ color:'#F77F9F', '&.Mui-checked': { color: '#F77F9F' } }}
                   checked={form.events.includes("None")}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      handleChange({ target: { name: 'events', value: ["None"] } });
+                    } else {
+                      handleChange({ target: { name: 'events', value: [] } });
+                    }
+                  }}
                 />
               }
               label="None"
-              value="None"
-              onChange={(e) => {
-                if (e.target.checked) {
-                  handleChange({ target: { name: 'events', value: ["None"] } });
-                } else {
-                  handleChange({ target: { name: 'events', value: [] } });
-                }
-              }}
             />
           </Box>
           {fieldErrors.events && (
@@ -131,6 +144,7 @@ export default function RSVPFormFields({
             placeholder="Guest's Full Name"
             onChange={handleChange}
             fullWidth
+            sx={{ '& .MuiInputBase-input': { fontFamily: 'EB Garamond' } }}
           />
         </FormControl>}
         <FormControl fullWidth sx={{ mb: 2 }}>
@@ -141,6 +155,7 @@ export default function RSVPFormFields({
             placeholder='e.g. vegetarian, gluten-free, etc.'
             onChange={handleChange}
             fullWidth
+            sx={{ '& .MuiInputBase-input': { fontFamily: 'EB Garamond' } }}
           />
         </FormControl>
         <FormControl fullWidth sx={{ mb: 2 }} error={false}>
@@ -150,6 +165,7 @@ export default function RSVPFormFields({
             value={form.note}
             onChange={handleChange}
             fullWidth
+            sx={{ '& .MuiInputBase-input': { fontFamily: 'EB Garamond' } }}
           />
         </FormControl>
       </Stack>

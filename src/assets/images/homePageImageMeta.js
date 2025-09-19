@@ -13,24 +13,11 @@ import discoBallImg from '../images/discoball.png';
 import discoBallImg600w from '../images/discoball-600w.png';
 import gingerbreadHouseImg from '../images/gingerbreadhouse.png';
 import gingerbreadHouseImg600w from '../images/gingerbreadhouse-600w.png';
-import scheduleTentImg from '../images/scheduleTent.png';
-import { Grid, Box, Typography } from '@mui/material';
 import TravelRequirementsContent from '../../components/TravelRequirementsContent';
-import { getGuestEventConfig } from '../../utils/guestEventConfig';
 import TTDModalContent from '../../components/TTDModalContent';
 import ScheduleModalContent from '../../components/ScheduleModalContent';
-import ModalBoxContainer from '../../components/ModalBoxContainer';
-import ModalBoxContent from '../../components/ModalBoxContent';
 import OurStoryModalContent from '../../components/OurStoryModalContent';
 import FAQModalContent from '../../components/FAQModalContent';
-
-
-
-const scheduleContentList = [{key:'Tampa Guests', title:'Kwanjula', date:'Saturday, May 2, 2026', location:'Tampa, FL'}, 
-    { key:'Uganda Guests', title: 'Kasiki', date: 'Saturday, July 11, 2026', location: 'Entebbe, Uganda'},
-    {key:'Zanzibar Guests', title: 'Wedding Ceremony', date: 'Saturday, July 18, 2026', location: 'Zanzibar, Tanzania'}];
-
-const citiesInvitedTo = localStorage.getItem('guestCities')?.split(/\s*,\s*/) || [];
 
 export const homePageImageMetaData = [
 // Top row images

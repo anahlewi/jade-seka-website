@@ -3,7 +3,7 @@ import { Box, Accordion, AccordionSummary, AccordionDetails, useMediaQuery, Typo
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function ModalBoxContainer({ children, title, sx = {}, ...props }) {
-  // Tablet breakpoint (md = 900px)
+  // Tablet breakpoint (md = 1200px)
   const isTablet = useMediaQuery('(max-width:1200px)');
   const isMobile = useMediaQuery('(max-width:600px)');
 

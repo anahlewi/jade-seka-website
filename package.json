@@ -26,13 +26,20 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint": "eslint 'src/**/*.{js,jsx}' --fix"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "plugins": [
+      "unused-imports"
+    ],
+    "rules": {
+      "unused-imports/no-unused-imports": "error"
+    }
   },
   "browserslist": {
     "production": [
@@ -47,6 +54,10 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-unused-imports": "^4.2.0",
+    "gh-pages": "^6.3.0",
+    "globals": "^16.4.0"
   }
 }

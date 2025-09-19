@@ -41,8 +41,28 @@ export default function FAQModalContent() {
     },
     {
       question: 'Can I bring my kids?',
-      items: [
-        'Unfortunately, no. The Zanzibar trip will be adults only. We encourage parents to take this time to leave the kids with grandma and grandpa and have a great time on the beach!'
+      locations: [
+        {
+          name: 'Kwanjula in Tampa',
+          key: 'Kwanjula',
+          items: [
+            'Kids are welcome at the Kwanjula in Tampa.'
+          ],
+        },
+        {
+          name: 'Kasiki in Uganda',
+          key: 'Kasiki',
+          items: [
+            'Kids are welcome at the Kasiki in Uganda.'
+          ],
+        },
+        {
+          name: 'Ceremony in Zanzibar',
+          key: 'Wedding',
+          items: [
+            'The Zanzibar trip will be adults only. We encourage parents to take this time to leave the kids with grandma and grandpa and have a great time on the beach!'
+          ],
+        },
       ],
     },
     {

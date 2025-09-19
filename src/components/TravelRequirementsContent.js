@@ -1,11 +1,11 @@
+import React from 'react';
 import ModalBoxContainer from './ModalBoxContainer';
 import ModalBoxContent from './ModalBoxContent';
 import Stack from '@mui/material/Stack';
-import { useMediaQuery } from '@mui/material';
 import { getGuestEventConfig } from '../utils/guestEventConfig';
+import { renderDescriptionWithLink } from '../utils/renderDescriptionWithLink';
 
 export default function TravelRequirementsContent() {
-  const isTablet = useMediaQuery('(max-width:900px)');
   const guestConfig = getGuestEventConfig();
   const allowedEvents = guestConfig.config.flatMap(c => c.events);
 
@@ -13,18 +13,37 @@ export default function TravelRequirementsContent() {
     {
       name: 'Tampa Requirements',
       key: 'Kwanjula',
-      content: 'A Real ID is now required for domestic travel. Please ensure you have this new document prior to travel if you do not have a passport that can be used instead.',
-    },
+      content: {
+        text:'Real ID', 
+        url:"https://www.tsa.gov/real-id", 
+        description:'A Real ID is now required for domestic travel. Please ensure you have this new document prior to travel if you do not have a passport that can be used instead.'},
+      },
     {
       name: 'Uganda Requirements',
       key: 'Kasiki',
       content: [
         {
           items: [
-            'Passport with 6 months validity on arrival date',
-            'Yellow fever card',
-            'Tourist Visa',
-            'Additional information regarding travel to Uganda',
+            { 
+              text: 'Passport', 
+              url: 'https://travel.state.gov/content/travel/en/passports.html', 
+              description: 'Passport with 6 months validity on arrival date' 
+            },
+            { 
+              text: 'Yellow fever card', 
+              url: 'https://wwwnc.cdc.gov/travel/diseases/yellow-fever', 
+              description: 'Yellow fever card' 
+            },
+            { 
+              text: 'Tourist Visa', 
+              url: 'https://visas.immigration.go.ug/', 
+              description: 'Tourist Visa' 
+            },
+            { 
+              text: 'Additional information regarding travel to Uganda', 
+              url: 'https://www.visituganda.com/', 
+              description: 'Additional information regarding travel to Uganda' 
+            },
           ],
         },
       ],
@@ -34,7 +53,26 @@ export default function TravelRequirementsContent() {
       key: 'Wedding',
       content: [
         {
-            items: ['Passport with 6 months validity on arrival date','Tourist Visa', 'Traveler’s Insurance', 'Additional information regarding travel to Tanzania',]
+            items: [
+              { 
+                text: 'Passport', 
+                url: 'https://travel.state.gov/content/travel/en/passports.html', 
+                description: 'Passport with 6 months validity on arrival date' 
+              },
+              {
+                text: 'Tourist Visa', 
+                url: 'https://visa.immigration.go.tz/',
+                description: 'Tourist Visa' 
+              },
+              { text: 'Traveler’s Insurance', 
+                url: 'https://inbound.visitzanzibar.go.tz/', 
+                description: 'Traveler’s Insurance' 
+              },
+              { text: 'Additional information regarding travel to Tanzania', 
+                url: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Tanzania.html', 
+                description: 'Additional information regarding travel to Tanzania' 
+              },
+            ],
         },
         {
             title: 'Hotel information',
@@ -65,23 +103,27 @@ export default function TravelRequirementsContent() {
           <Stack direction={'column'} spacing={2} sx={{ mb: 2 }}>
             <ModalBoxContent>
             {Array.isArray(location.content) ? location.content.map((section, idx) => (
-              <>
-               {section.title && <strong>{section.title}</strong>}
+              <React.Fragment key={idx}>
+                {section.title && <strong>{section.title}</strong>}
                 {section.items && (
                   <ul>
                     {section.items.map((item, itemIdx) => (
-                      <li key={itemIdx}>{item}</li>
+                      <li key={itemIdx} style={{ marginBottom: '0.5em' }}>
+                        {typeof item === 'object' && item.text ?
+                          renderDescriptionWithLink(item.text, item.url, item.description)
+                          : item}
+                      </li>
                     ))}
                   </ul>
                 )}
                 {section.content && (
                   <div style={{ marginTop: 8, fontStyle: 'italic' }}>{section.content}</div>
                 )}
-                </>
+              </React.Fragment>
             )) : (
-                <>
-                {location.content}
-                </>
+                typeof location.content === 'object' && location.content.text ?
+                  renderDescriptionWithLink(location.content.text, location.content.url, location.content.description)
+                  : location.content
             )}
         </ModalBoxContent>
 

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useMediaQuery } from '@mui/material';
 import { getGuestEventConfig } from '../utils/guestEventConfig';
+import { getFullNameFromSheetDB } from '../utils/sheetDBApi';
 import RSVPFormSubmitMessage from './RSVPFormSubmitMessage';
-import { getRSVPStatus } from '../utils/sheetDBApi';
 import RSVPFormFields from './RSVPFormFields';
 
 
@@ -21,7 +21,6 @@ export default function RSVPForm({ onSubmit }) {
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
-  const [formError, setFormError] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
   const [alreadyRSVPed, setAlreadyRSVPed] = useState(localStorage.getItem('RSVPStatus'));
   const isMobile = useMediaQuery('(max-width:900px)');
@@ -30,7 +29,6 @@ export default function RSVPForm({ onSubmit }) {
   const requiredFields = [
     { name: 'firstName', label: 'First Name' },
     { name: 'lastName', label: 'Last Name' },
-    { name: 'dietary', label: 'Dietary Restrictions' },
     { name: 'events', label: 'Event(s) Attending' },
     { name: 'plusOne', label: 'Plus One' },
   ];
@@ -38,6 +36,7 @@ export default function RSVPForm({ onSubmit }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+    console.log('Form updated:', form);
   };
 
   const handleSubmit = async (e) => {
@@ -51,21 +50,44 @@ export default function RSVPForm({ onSubmit }) {
       }
     }
     setFieldErrors(errors);
+    console.log('Validation errors:', errors);
     if (Object.keys(errors).length > 0) return;
-    setFormError('');
     try {
       await onSubmit(form); // parent should return a promise
+      console.log('RSVP submitted successfully');
       setSubmitted(true);
       localStorage.setItem('RSVPStatus', 'Yes');
       setAlreadyRSVPed(true);
       setError(false);
     } catch {
+        console.log('Error submitting RSVP');
       setSubmitted(false);
       setError(true);
     }
   };
 
-
+  // Autofill name from SheetDB if id exists
+  useEffect(() => {
+    async function autofillName() {
+      if (form.id) {
+        try {
+          const fullName = await getFullNameFromSheetDB(form.id);
+          if (fullName) {
+            const [firstName, ...lastNameArr] = fullName.split(' ');
+            setForm((prev) => ({
+              ...prev,
+              firstName: firstName || '',
+              lastName: lastNameArr.join(' ') || '',
+            }));
+          }
+        } catch (err) {
+          console.error('Could not autofill name:', err);
+        }
+      }
+    }
+    autofillName();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.id]);
 
   if (submitted) {
     return <RSVPFormSubmitMessage success={true} error={false} onClose={() => setSubmitted(false)} />;
