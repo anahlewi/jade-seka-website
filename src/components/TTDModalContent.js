@@ -12,39 +12,6 @@ export default function TTDModalContent() {
 
   const locations = [
     {
-      name: 'Tampa',
-      key: 'Kwanjula',
-      sections: [
-        {
-          title: 'Eat',
-          items: [
-            { text: 'Forest Hills Grocery', url: 'https://maps.app.goo.gl/TvHHfdzhv73ppPGLA', description: 'Forest Hills Grocery for the Certified Hood Classic™ Cuban sandwich.' },
-            { text: 'La Segunda', url: 'https://www.lasegundabakery.com/', description: ' La Segunda for a more upscale version of the sandwich.' },
-            { text: 'Gourmet Pizza Company', url: 'https://gourmetpizza-company.com/', description: 'Absolutely iconic and delicious vegan and non vegan pizza Gourment Pizza Company.' },
-            { text: 'Bern’s Steakhouse', url: 'https://bernssteakhouse.com/', description: 'Another Tampa legend, Bern’s Steakhouse.' },
-            { text: 'Mr. & Mrs. Crab', url: 'https://mrmrscrab.com/', description: 'When in Florida, seafood is a must and our family suggests Mr. & Mrs. Crab.' },
-          ],
-        },
-        {
-          title: 'See',
-          items: [
-            { text: 'Ybor City', url: 'https://yborcityonline.com/', description: 'Visit historical Tampa in Ybor City aka Cigar City.' },
-            { text: 'Lettuce Lake Regional Park', url: 'https://www.hillsboroughcounty.org/en/locations/lettuce-lake-park', description: 'Lettuce Lake Regional Park for a beautiful experience in Florida nature.' },
-            { text: 'Tampa Riverwalk', url: 'https://thetampariverwalk.com/', description: 'Take a walk down the Hillsborough River via the Tampa Riverwalk with lots to see and do along the way.' },
-          ],
-        },
-        {
-          title: 'Do',
-          items: [
-            { text: 'Armature Works', url: 'https://armatureworks.com/', description: 'Armature Works at the beginning of the Tampa Riverwalk.' },
-            { text: 'Sparkman Wharf', url: 'https://sparkmanwharf.com/', description: 'Sparkman Wharf at the end of the Tampa Riverwalk.' },
-            { text: 'Busch Gardens', url: 'https://buschgardens.com/tampa/', description: 'Busch Gardens for a fun-fill family day at the amusement park.' },
-            { text: 'North Beach at Fort DeSoto', url: 'https://www.pinellascounty.org/park/05_Ft_DeSoto.htm', description: 'If you have the time, take the drive out to our family favorite, the gorgeous North Beach at Fort DeSoto.' },
-          ],
-        },
-      ],
-    },
-    {
       name: 'Zanzibar',
       key: 'Wedding',
       items:[

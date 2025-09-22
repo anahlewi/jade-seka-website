@@ -4,7 +4,6 @@ export function getGuestEventConfig() {
   const citiesInvitedTo = rawCities.split(/\s*,\s*/).filter(Boolean);
   // Map of city/event keys to events to display
   const eventMap = {
-    'Tampa Guests': 'Kwanjula',
     'Uganda Guests': 'Kasiki',
     'Zanzibar Guests': 'Wedding',
   };

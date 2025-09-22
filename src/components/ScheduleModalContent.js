@@ -17,30 +17,7 @@ export default function TTDModalContent() {
 
   const locations = [
     {
-      name: 'Tampa, Florida (April 30 - May 2)',
-      key: 'Kwanjula',
-      sections: [
-        {
-            date: 'April 30, 2026',
-            items: ['Arrival'],
-        },
-        {
-            date: 'May 1, 2026',
-            items: ['Welcome Event','Family Dinner'],
-        },
-        {
-            date: 'May 2, 2026',
-            items: ['Kwanjula', 'After Party' ],
-        },
-        {
-            date: 'May 3, 2026',
-            items: ['Depart'],
-        },
-      ],
-
-    },
-    {
-      name: 'Uganda (July 8 - 13)',
+      name: 'Entebbe, Uganda (July 8 - 13)',
       key:'Kasiki',
       sections: [
         {
@@ -57,7 +34,7 @@ export default function TTDModalContent() {
         },
         {
             date: 'July 11, 2026',
-            items: ['Kasiki reception'],
+            items: ['Kasiki Reception'],
         },
         {
             date: 'July 12, 2026',
@@ -66,7 +43,7 @@ export default function TTDModalContent() {
       ],
     },
     {
-      name: 'Zanzibar (July 14 - 20)',
+      name: 'Zanzibar, Tanzania (July 14 - 20)',
       key: 'Wedding',
       sections: [
         {
@@ -79,11 +56,11 @@ export default function TTDModalContent() {
         },
         {
             date: 'July 16, 2026',
-            items: ['Jozani Forest aka monkey forest tour'],
+            items: ['Jozani Forest aka Monkey Forest Tour'],
         },
         {
             date: 'July 17, 2026',
-            items: ['Morning yoga at resort', 'Group dinner at resort'],
+            items: ['Morning Yoga at Resort', 'Group Dinner at Resort'],
         },
         {
             date: 'July 18, 2026',

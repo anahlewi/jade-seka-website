@@ -136,7 +136,7 @@ function HomePage(props) {
           <TitleComponent width={width} />
         </Box>
       </Box>
-      <Grid container direction="column" justifyContent="center" marginTop={2} marginBottom={10} alignItems="center">
+      <Grid container direction="column" justifyContent="center" marginTop={2} marginBottom={10} paddingBottom={4} alignItems="center">
         {/* Top images row */}
         <Grid container direction="row" justifyContent="center" >
           {webResponsiveDisplayGridTop()}

@@ -11,14 +11,6 @@ export default function TravelRequirementsContent() {
 
   const locations = [
     {
-      name: 'Tampa Requirements',
-      key: 'Kwanjula',
-      content: {
-        text:'Real ID', 
-        url:"https://www.tsa.gov/real-id", 
-        description:'A Real ID is now required for domestic travel. Please ensure you have this new document prior to travel if you do not have a passport that can be used instead.'},
-      },
-    {
       name: 'Uganda Requirements',
       key: 'Kasiki',
       content: [
@@ -31,7 +23,7 @@ export default function TravelRequirementsContent() {
             },
             { 
               text: 'Yellow fever card', 
-              url: 'https://wwwnc.cdc.gov/travel/diseases/yellow-fever', 
+              url: 'https://wwwnc.cdc.gov/travel/yellow-fever-vaccination-clinics/search', 
               description: 'Yellow fever card' 
             },
             { 
@@ -41,7 +33,7 @@ export default function TravelRequirementsContent() {
             },
             { 
               text: 'Additional information regarding travel to Uganda', 
-              url: 'https://www.visituganda.com/', 
+              url: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Uganda.html', 
               description: 'Additional information regarding travel to Uganda' 
             },
           ],
@@ -68,15 +60,15 @@ export default function TravelRequirementsContent() {
                 url: 'https://inbound.visitzanzibar.go.tz/', 
                 description: 'Traveler’s Insurance' 
               },
-              { text: 'Additional information regarding travel to Tanzania', 
+              { text: 'Additional Information Regarding Travel to Tanzania', 
                 url: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Tanzania.html', 
                 description: 'Additional information regarding travel to Tanzania' 
               },
             ],
         },
         {
-            title: 'Hotel information',
-            items: ['We’ll be staying at TOA Hotel and Spa in Pongwe, Zanzibar, Tanzania. We’ve secured discounted bookings for the all inclusive package which includes daily breakfast, lunch, and dinner, plus alcoholic and nonalcoholic beverages. How to book In order to book your discounted accommodations, email']
+            title: 'Hotel Information',
+            items: ['We’ll be staying at TOA Hotel and Spa in Pongwe, Zanzibar, Tanzania. We’ve secured discounted bookings for the all inclusive package which includes daily breakfast, lunch, and dinner, plus alcoholic and nonalcoholic beverages.']
         },
         {
             title: 'How To Book',

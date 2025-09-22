@@ -24,13 +24,6 @@ export default function FAQModalContent() {
       question: 'What should I wear?',
       locations: [
         {
-          name: 'Kwanjula in Tampa',
-          key: 'Kwanjula',
-          items: [
-            'Traditional celebratory Ugandan wear is strongly encouraged in pinks and greens. Busuutis, kanzus, and other traditional Ugandan attire. If you don’t have any Ugandan or generally African attire, formal Western wear is great too.'
-          ],
-        },
-        {
           name: 'Ceremony in Zanzibar',
           key: 'Wedding',
           items: [
@@ -42,13 +35,6 @@ export default function FAQModalContent() {
     {
       question: 'Can I bring my kids?',
       locations: [
-        {
-          name: 'Kwanjula in Tampa',
-          key: 'Kwanjula',
-          items: [
-            'Kids are welcome at the Kwanjula in Tampa.'
-          ],
-        },
         {
           name: 'Kasiki in Uganda',
           key: 'Kasiki',
@@ -76,6 +62,8 @@ export default function FAQModalContent() {
     },
   ];
 
+  const showSpendFaq = allowedEvents.includes('Wedding');
+
   const widthForScreen = () =>{
     if (isTablet){
         return '97vw';
@@ -90,7 +78,7 @@ export default function FAQModalContent() {
 
   return (
     <Stack spacing={2}>
-      {faqs.map((faq, idx) => (
+      {faqs.filter((faq) => faq.question !== 'How much can I expect to spend?' || showSpendFaq).map((faq, idx) => (
         <Accordion
           key={idx}
           sx={{
