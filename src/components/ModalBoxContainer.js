@@ -9,25 +9,27 @@ export default function ModalBoxContainer({ children, title, sx = {}, ...props }
 
   if (isTablet) {
     return (
-      <Accordion sx={{
-        borderRadius: 1,
-        backgroundColor: 'rgba(76, 129, 94, 0.5)',
-        color: '#2C3607',
-        boxShadow: '0 4px 16px 0 rgba(44, 54, 7, 0.15)',
-        mb: 2,
-        width: isMobile? '95vw': '97.5vw',
-        maxWidth: isMobile? '95vw': '97.5vw',
-        left: 0,
-        position: 'relative',
-        ...sx,
-      }} {...props}>
-        <AccordionSummary sx={{fontFamily:'EB Garamond'}} expandIcon={<ExpandMoreIcon />}>
-          <Typography variant='h6' fontFamily="EB Garamond">{title}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          {children}
-        </AccordionDetails>
-      </Accordion>
+      <div style={{paddingBottom: '45px'}}>
+        <Accordion sx={{
+          borderRadius: 1,
+          backgroundColor: 'rgba(76, 129, 94, 0.5)',
+          color: '#2C3607',
+          boxShadow: '0 4px 16px 0 rgba(44, 54, 7, 0.15)',
+          mb: 2,
+          width: isMobile? '95vw': '97.5vw',
+          maxWidth: isMobile? '95vw': '97.5vw',
+          left: 0,
+          position: 'relative',
+          ...sx,
+        }} {...props}>
+          <AccordionSummary sx={{fontFamily:'EB Garamond'}} expandIcon={<ExpandMoreIcon />}>
+            <Typography variant='h6' fontFamily="EB Garamond">{title}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {children}
+          </AccordionDetails>
+        </Accordion>
+      </div>
     );
   }
   return (

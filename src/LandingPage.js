@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 // import { Typography } from '@mui/material';
 import TitleComponent from './components/TitleComponent';
 import useWindowSize from './hooks/useWindowSize';
+import { logUserLogin } from './utils/sheetDBApi';
+import emailjs from '@emailjs/browser';
 
 function LandingPage() {
   const {width} = useWindowSize();
@@ -35,6 +37,10 @@ function LandingPage() {
         localStorage.setItem('id', results[0].id);
         localStorage.setItem('guestCities', results[0].Cities);
         localStorage.setItem('RSVPStatus', results[0].RSVP);
+
+        // Log user login to SheetDB
+        await logUserLogin(results[0].Name);
+        emailjs.init({publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY});
 
         navigate('/home');
       }

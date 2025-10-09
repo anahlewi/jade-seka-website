@@ -1,9 +1,5 @@
 /* Responsive styles for LandingPage and HomePage */
 @media (max-width: 900px) {
-  #landing-page-text,
-  .sekasfont-regular {
-    font-size: 2em !important;
-  }
   .image-context {
     height: 120px;
     max-width: 90vw;
@@ -14,10 +10,6 @@
 }
 
 @media (max-width: 600px) {
-  #landing-page-text,
-  .sekasfont-regular {
-    font-size: 1.2em !important;
-  }
   .landing-page-button {
     font-size: 0.6em !important;
   }

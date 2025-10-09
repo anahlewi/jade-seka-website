@@ -77,7 +77,7 @@ export default function FAQModalContent() {
   }
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} paddingBottom={isTablet ? '45px' : 0}>
       {faqs.filter((faq) => faq.question !== 'How much can I expect to spend?' || showSpendFaq).map((faq, idx) => (
         <Accordion
           key={idx}

@@ -87,7 +87,7 @@ export default function TTDModalContent() {
   }
 
   return (
-    <>
+    <div style={{paddingBottom: isTablet ? '45px' : 0}}>
       {locations.filter(location => allowedEvents.includes(location.key)).map((location) => (
         <Accordion key={location.name} sx={{
             borderRadius: 1,
@@ -126,6 +126,6 @@ export default function TTDModalContent() {
           </AccordionDetails>
         </Accordion>
       ))}
-    </>
+    </div>
   );
 }
