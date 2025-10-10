@@ -93,7 +93,7 @@ function HomePage(props) {
         const mobileImgSize = {
           width: '40vw',
           height: 'auto',
-          maxHeight: '22vh',
+          maxHeight: '18vh',
           objectFit: 'contain',
         };
         const desktopImgSize = {
@@ -111,7 +111,7 @@ function HomePage(props) {
                 onClick={img.onClick ? img.onClick : () => openModal(img)}
                 style={{
                   ...(isMobile ? mobileImgSize : desktopImgSize),
-                  marginTop: isMobile && img.key === 3 ? '-46px' : 0,
+                  marginTop: isMobile && img.key === 3 ? '-20px' : 0,
                 }}
                 alt={img.alt || ''}
                 {...commonProps}
@@ -133,7 +133,7 @@ function HomePage(props) {
                   fontSize: isMobile ? '1em' : '1.5em',
                   lineHeight: 1,
                 }}
-                letterSpacing={-0.5}
+                letterSpacing={-1.5}
                 variant="body2"
               >
                 {img.name}
