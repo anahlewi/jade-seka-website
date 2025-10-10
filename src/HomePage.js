@@ -84,21 +84,35 @@ function HomePage(props) {
   const renderImages = (section, row) =>
     homePageImageMetaData
       .filter((img) => img.position.section === section && img.position.grid.row === row)
-      .map((img, idx) => {
+      .map((img) => {
         const commonProps = {
           key: img.name,
           alt: img.alt,
         };
+        // Responsive image sizing for mobile
+        const mobileImgSize = {
+          width: '40vw',
+          height: 'auto',
+          maxHeight: '22vh',
+          objectFit: 'contain',
+        };
+        const desktopImgSize = {
+          width: '100%',
+          height: 'auto',
+          maxHeight: 200,
+          objectFit: 'contain',
+        };
         return (
-          <Grid item marginBottom={isMobile ? 1 : 6} marginRight={isMobile ? 1 : 6} marginLeft={isMobile ? 1 : 6} key={img.name}>
+          <Grid item marginBottom={isMobile ? 0.5 : 3} marginRight={isMobile ? 0.5 : 3} marginLeft={isMobile ? 0.5 : 3} key={img.name}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <img
                 className={isMobile ? 'none' : 'image-context'}
                 src={isMobile ? img.mobileSrc : img.src}
                 onClick={img.onClick ? img.onClick : () => openModal(img)}
-                width={isMobile && img.key === 1 ? '150' : '100%'}
-                height={isMobile && img.key === 1 ? '150' : 'auto'}
-                style={{ display: 'block', margin: '0 auto',  marginTop: isMobile && img.key === 3 ? -60 : 0, maxHeight: 200, width: 'auto', }}
+                style={{
+                  ...(isMobile ? mobileImgSize : desktopImgSize),
+                  marginTop: isMobile && img.key === 3 ? '-46px' : 0,
+                }}
                 alt={img.alt || ''}
                 {...commonProps}
               />
@@ -108,17 +122,18 @@ function HomePage(props) {
                   fontFamily: 'Sekasfont-Regular',
                   color: '#0A180F',
                   width: '100%',
-                  maxWidth: 180,
+                  maxWidth: isMobile ? '40vw' : 180,
                   mx: 'auto',
-                  marginTop:1,
+                  marginTop: 1,
                   overflowWrap: 'break-word',
                   wordBreak: 'break-word',
                   whiteSpace: 'normal',
                   textAlign: 'center',
-                  marginBottom: 3,
-                  fontSize: isMobile ? '1.2em' : '1.5em',
+                  marginBottom: 2,
+                  fontSize: isMobile ? '1em' : '1.5em',
                   lineHeight: 1,
                 }}
+                letterSpacing={-0.5}
                 variant="body2"
               >
                 {img.name}
