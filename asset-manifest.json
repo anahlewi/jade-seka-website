@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.9457cb27.css",
+    "main.css": "/static/css/main.4e5d0094.css",
     "main.js": "/static/js/main.aba13265.js",
     "static/js/453.a77572ee.chunk.js": "/static/js/453.a77572ee.chunk.js",
     "static/media/african-mask.png": "/static/media/african-mask.1c2a085b3b5d69122a2f.png",
@@ -17,12 +17,12 @@
     "static/media/Sekasfont-Regular.woff": "/static/media/Sekasfont-Regular.e9f4e776e0bc1955330a.woff",
     "static/media/board-600w.png": "/static/media/board-600w.99d66fc31a2562d0af75.png",
     "index.html": "/index.html",
-    "main.9457cb27.css.map": "/static/css/main.9457cb27.css.map",
+    "main.4e5d0094.css.map": "/static/css/main.4e5d0094.css.map",
     "main.aba13265.js.map": "/static/js/main.aba13265.js.map",
     "453.a77572ee.chunk.js.map": "/static/js/453.a77572ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9457cb27.css",
+    "static/css/main.4e5d0094.css",
     "static/js/main.aba13265.js"
   ]
 }
