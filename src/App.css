@@ -199,8 +199,9 @@ input::placeholder {
   color:#e2e2e2;
 }
 
-button, .close-button-modal{
-  color: '#0A180F';
+button, .close-button-modal {
+  color: #0A180F !important;
+  -webkit-text-fill-color: #0A180F !important;
 }
 
 .close-button-modal:hover{
