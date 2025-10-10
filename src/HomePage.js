@@ -93,7 +93,7 @@ function HomePage(props) {
         const mobileImgSize = {
           width: '40vw',
           height: 'auto',
-          maxHeight: '22vh',
+          maxHeight: '16vh',
           objectFit: 'contain',
         };
         const desktopImgSize = {
@@ -111,7 +111,6 @@ function HomePage(props) {
                 onClick={img.onClick ? img.onClick : () => openModal(img)}
                 style={{
                   ...(isMobile ? mobileImgSize : desktopImgSize),
-                  marginTop: isMobile && img.key === 3 ? '-30px' : 0,
                 }}
                 alt={img.alt || ''}
                 {...commonProps}
@@ -174,14 +173,14 @@ function HomePage(props) {
           onClick={openModal}
           sx={{
             fontFamily: 'Sekasfont-Regular',
-            fontSize: isMobile ? '1.5em' : '2em',
+            fontSize: isMobile ? '1em' : '2em',
             backgroundColor: '#2C3607',
             color: 'white',
             width: 350,
             height: 35,
-            letterSpacing: -2,
-            padding: isMobile ? 1.5 : 2.6,
-            marginTop: isMobile ? 4 : -7,
+            letterSpacing: 2,
+            padding: isMobile ? 2.6 : 2.6,
+            marginTop: isMobile ? 2 : -7,
             borderRadius: 2,
             '&:hover': {
               backgroundColor: '#4C815E',
