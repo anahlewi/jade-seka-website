@@ -95,7 +95,6 @@ function HomePage(props) {
               <img
                 className={isMobile ? 'none' : 'image-context'}
                 src={isMobile ? img.mobileSrc : img.src}
-                onTouchEnd={img.onClick ? img.onClick : () => openModal(img)}
                 onClick={img.onClick ? img.onClick : () => openModal(img)}
                 width={isMobile && img.key === 1 ? '150' : '100%'}
                 height={isMobile && img.key === 1 ? '150' : 'auto'}

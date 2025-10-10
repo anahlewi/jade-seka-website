@@ -38,13 +38,13 @@ export const homePageImageMetaData = [
     },
     {
         key:2,
-        name: 'Travel Requirements',
+        name: 'Travel',
         src: africanMaskImg,
         mobileSrc: africanMaskImg600w,
         alt: 'flamingo 4',
         position: { section: 'top', vertical:'bottom', horizontal:'right', grid: { row: 1, col: 2 } },
         modalContent: {
-          title: 'Travel Requirements',
+          title: 'Travel',
           description: <TravelRequirementsContent/>
         }
     },
