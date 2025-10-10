@@ -5,7 +5,10 @@ import Stack from '@mui/material/Stack';
 import { getGuestEventConfig } from '../utils/guestEventConfig';
 import { renderDescriptionWithLink } from '../utils/renderDescriptionWithLink';
 
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 export default function TravelRequirementsContent() {
+  const isTablet = useMediaQuery('(max-width:900px)');
   const guestConfig = getGuestEventConfig();
   const allowedEvents = guestConfig.config.flatMap(c => c.events);
 
@@ -62,7 +65,7 @@ export default function TravelRequirementsContent() {
               },
               { text: 'Additional Information Regarding Travel to Tanzania', 
                 url: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Tanzania.html', 
-                description: 'Additional information regarding travel to Tanzania' 
+                description: 'Additional Information Regarding Travel to Tanzania' 
               },
             ],
         },
@@ -89,7 +92,7 @@ export default function TravelRequirementsContent() {
     ];
 
   return (
-    <>
+    <div style={{paddingBottom: isTablet ? '45px' : 0}}>
       {locations.filter(location => allowedEvents.includes(location.key)).map((location) => (
         <ModalBoxContainer title={location.name} key={location.name}>
           <Stack direction={'column'} spacing={2} sx={{ mb: 2 }}>
@@ -118,10 +121,9 @@ export default function TravelRequirementsContent() {
                   : location.content
             )}
         </ModalBoxContent>
-
-          </Stack>
+        </Stack>
         </ModalBoxContainer>
       ))}
-    </>
+    </div>
   );
 }

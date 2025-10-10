@@ -9,7 +9,6 @@ export default function ModalBoxContainer({ children, title, sx = {}, ...props }
 
   if (isTablet) {
     return (
-      <div style={{paddingBottom: '45px'}}>
         <Accordion sx={{
           borderRadius: 1,
           backgroundColor: 'rgba(76, 129, 94, 0.5)',
@@ -29,7 +28,6 @@ export default function ModalBoxContainer({ children, title, sx = {}, ...props }
             {children}
           </AccordionDetails>
         </Accordion>
-      </div>
     );
   }
   return (

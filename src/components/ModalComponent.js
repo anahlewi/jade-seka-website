@@ -28,7 +28,6 @@ const ModalComponent = ({ open, onClose, children }) => {
               justifyContent: 'center',
               alignItems: 'center',
               overflow: 'wrap',
-              paddingBottom: isTabletOrMobile ? '65px' : 0,
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -57,7 +56,6 @@ const ModalComponent = ({ open, onClose, children }) => {
                       overflowY: 'auto',
                       backgroundColor: '#FDEDF0',
                       padding: '10px',
-                      paddingBottom: '65px',
                       borderRadius: 0,
                       height: '100vh',
                       width: '100vw',
@@ -74,6 +72,7 @@ const ModalComponent = ({ open, onClose, children }) => {
               exit={{ scale: 0.8 }}
             >
               <button
+                onTouchEnd={onClose}
                 onClick={onClose}
                 className='sekasfont-regular close-button-modal'
                 style={{

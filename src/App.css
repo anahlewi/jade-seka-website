@@ -199,6 +199,10 @@ input::placeholder {
   color:#e2e2e2;
 }
 
+.close-button-modal{
+  -webkit-tap-highlight-color: transparent;
+}
+
 .close-button-modal:hover{
   color:#4C815E;
 }
@@ -207,6 +211,8 @@ input::placeholder {
   height: 40vmin;
   pointer-events: none;
 }
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

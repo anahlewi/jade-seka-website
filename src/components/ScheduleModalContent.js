@@ -52,11 +52,11 @@ export default function TTDModalContent() {
         },
         {
             date: 'July 15, 2026',
-            items: ['Stone Town and Spice Market tour'],
+            items: ['Stone Town and Spice Market Tour'],
         },
         {
             date: 'July 16, 2026',
-            items: ['Jozani Forest aka Monkey Forest Tour'],
+            items: ['Monkey Forest Tour at Jozani Forest'],
         },
         {
             date: 'July 17, 2026',
