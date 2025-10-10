@@ -199,7 +199,7 @@ input::placeholder {
   color:#e2e2e2;
 }
 
-button, .close-button-modal {
+.close-button-modal {
   color: #0A180F !important;
 }
 
