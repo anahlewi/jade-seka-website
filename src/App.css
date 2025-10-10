@@ -200,11 +200,11 @@ input::placeholder {
 }
 
 .close-button-modal {
-  color: #0A180F !important;
+  color: #2C3607 !important;
 }
 
 .close-button-modal:hover{
-  color:#4C815E;
+  color:#4C815E !important;
 }
 
 .App-logo {

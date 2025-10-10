@@ -43,7 +43,7 @@ export default function OurStoryModalContent() {
   const isMobile = useMediaQuery('(max-width:900px)');
 
   return (
-    <Stack sx={isMobile?{display:'flex', width:'95vw', paddingBottom:'45px'}:{width:'inherit'}}>
+    <Stack sx={isMobile?{display:'flex', width:'95vw', paddingBottom:'65px'}:{width:'inherit'}}>
       <Typography variant="body1" fontFamily="Tenor Sans" marginBottom={5} gutterBottom> Jade and Seka met the way most millennials meet, dating apps aside, at work. The two developed a strong friendship over the years whose chemistry would cross over and sow the early seeds of a romance. Previous partners and a pandemic initially pulled these star-crossed lovers apart, however, eventually the stars finally aligned for them to make their romance work. </Typography> 
       {eras.map((era, idx) => (
          <>

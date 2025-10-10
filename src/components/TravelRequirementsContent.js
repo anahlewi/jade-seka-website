@@ -92,7 +92,7 @@ export default function TravelRequirementsContent() {
     ];
 
   return (
-    <div style={{paddingBottom: isTablet ? '45px' : 0}}>
+    <div style={{paddingBottom: isTablet ? '65px' : 0}}>
       {locations.filter(location => allowedEvents.includes(location.key)).map((location) => (
         <ModalBoxContainer title={location.name} key={location.name}>
           <Stack direction={'column'} spacing={2} sx={{ mb: 2 }}>

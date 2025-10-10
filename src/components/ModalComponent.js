@@ -42,15 +42,9 @@ const ModalComponent = ({ open, onClose, children }) => {
                       overflowY: 'auto',
                       backgroundColor: '#FDEDF0',
                       padding: '20px',
-                      borderRadius: '8px',
-                      height: '500px',
-                      width: '70%',
-                      left: 0,
-                      right: 0,
-                      top: 0,
-                      bottom: 0,
-                      margin: 'auto',
-                      position: 'absolute',
+                      height: '100vh',
+                      width: '100vw',
+                      boxSizing: 'border-box',
                     }
                   : {
                       overflowY: 'auto',
@@ -78,6 +72,7 @@ const ModalComponent = ({ open, onClose, children }) => {
                   position: 'absolute',
                   top: isDesktop ? 27 : 36,
                   right: isDesktop ? 13 : 29,
+                  zIndex: 100,
                   border: 'none',
                   background: 'none',
                   fontSize: isDesktop ? '2.75em' : '2em',
@@ -87,7 +82,9 @@ const ModalComponent = ({ open, onClose, children }) => {
               >
                 X
               </button>
-              {children}
+              <div style={{ maxHeight: '100%', overflowY: 'auto', width: '100%' }}>
+                {children}
+              </div>
             </motion.div>
           </motion.div>
         </Modal>

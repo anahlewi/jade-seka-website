@@ -93,7 +93,7 @@ function HomePage(props) {
         const mobileImgSize = {
           width: '40vw',
           height: 'auto',
-          maxHeight: '15vh',
+          maxHeight: '22vh',
           objectFit: 'contain',
         };
         const desktopImgSize = {
@@ -110,7 +110,8 @@ function HomePage(props) {
                 src={isMobile ? img.mobileSrc : img.src}
                 onClick={img.onClick ? img.onClick : () => openModal(img)}
                 style={{
-                  ...(isMobile ? mobileImgSize : desktopImgSize)
+                  ...(isMobile ? mobileImgSize : desktopImgSize),
+                  marginTop: isMobile && img.key === 3 ? '-30px' : 0,
                 }}
                 alt={img.alt || ''}
                 {...commonProps}
@@ -173,16 +174,18 @@ function HomePage(props) {
           onClick={openModal}
           sx={{
             fontFamily: 'Sekasfont-Regular',
-            fontSize: '2em',
+            fontSize: isMobile ? '1.5em' : '2em',
             backgroundColor: '#2C3607',
             color: 'white',
             width: 350,
             height: 35,
-            padding:2.6,
+            letterSpacing: -2,
+            padding: isMobile ? 1.5 : 2.6,
             marginTop: isMobile ? 4 : -7,
             borderRadius: 2,
             '&:hover': {
-              backgroundColor: '#4C815E',}
+              backgroundColor: '#4C815E',
+            }
           }}
         >
           RSVP
