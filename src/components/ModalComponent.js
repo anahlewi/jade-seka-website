@@ -80,7 +80,6 @@ const ModalComponent = ({ open, onClose, children }) => {
                   right: isDesktop ? 13 : 29,
                   border: 'none',
                   background: 'none',
-                  color: '#0A180F !important',
                   fontSize: isDesktop ? '2.75em' : '2em',
                   lineHeight: 1,
                   cursor: 'pointer',

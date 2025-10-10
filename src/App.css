@@ -199,8 +199,8 @@ input::placeholder {
   color:#e2e2e2;
 }
 
-.close-button-modal{
-  -webkit-tap-highlight-color: transparent;
+button, .close-button-modal{
+  color: '#0A180F';
 }
 
 .close-button-modal:hover{

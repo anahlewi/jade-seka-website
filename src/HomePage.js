@@ -93,7 +93,7 @@ function HomePage(props) {
         const mobileImgSize = {
           width: '40vw',
           height: 'auto',
-          maxHeight: '18vh',
+          maxHeight: '15vh',
           objectFit: 'contain',
         };
         const desktopImgSize = {
@@ -110,8 +110,7 @@ function HomePage(props) {
                 src={isMobile ? img.mobileSrc : img.src}
                 onClick={img.onClick ? img.onClick : () => openModal(img)}
                 style={{
-                  ...(isMobile ? mobileImgSize : desktopImgSize),
-                  marginTop: isMobile && img.key === 3 ? '-20px' : 0,
+                  ...(isMobile ? mobileImgSize : desktopImgSize)
                 }}
                 alt={img.alt || ''}
                 {...commonProps}
