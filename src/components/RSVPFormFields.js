@@ -21,7 +21,8 @@ export default function RSVPFormFields({
       sx={isMobile ? {
         width: '95vw',
         maxWidth: 400,
-        height: isMobile ? '60vh' : 'auto', 
+        height: isMobile ? '95vh' : 'auto',
+        paddingBottom: 5,
         overflowY: 'scroll',
         alignContent: 'center',
         flexDirection: 'column'
@@ -74,7 +75,7 @@ export default function RSVPFormFields({
         <Typography color="error" sx={{ mt: -1, textAlign: 'left', fontFamily: 'EB Garamond' }}>
           Your full name is required.
         </Typography>)}
-      <Stack direction={'column'} spacing={2} sx={{ mb: 2, fontFamily: 'EB Garamond' }}>
+      <Stack direction={'column'} spacing={2} sx={{ mb: 3, fontFamily: 'EB Garamond' }}>
         <FormControl component="fieldset" sx={{ mb: 2 }} required error={false}>
           <FormLabel component="legend">Select the event(s) you will be attending:</FormLabel>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
@@ -179,8 +180,7 @@ export default function RSVPFormFields({
           backgroundColor: '#2C3607', 
           color: 'white', 
           fontFamily: 'Sekasfont-Regular', 
-          fontSize:'1.2em', 
-          paddingBottom: 10,
+          fontSize:'1.2em',  
           mt: 2, 
           width: '100%', 
           '&:hover': { backgroundColor: '#545c35' }
