@@ -65,26 +65,38 @@ export async function getFullNameFromSheetDB(id) {
  */
 export async function logUserLogin(user) {
   const now = new Date();
+
+    // Use toLocaleString() to format the date and time, including the timezone name
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    timeZoneName: 'short', // or 'long' for full timezone name
+  };
+
   const payload = {
     data: [
-      {
-        'USER': user,
-        'DATE': now.toLocaleTimeString(),
-      }
-    ]
-  };
-  try {
-    const response = await fetch(SHEETDB_USERLOG_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Error logging user login:', error);
-    throw error;
+        {
+          'USER': user,
+          'DATE': now.toLocaleString(undefined, options),
+        }
+      ]
+    };
+    try {
+      const response = await fetch(SHEETDB_USERLOG_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+      return await response.json();
+    } catch (error) {
+      console.error('Error logging user login:', error);
+      throw error;
   }
 }
 

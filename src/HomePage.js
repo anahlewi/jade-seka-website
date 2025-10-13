@@ -14,7 +14,7 @@ function HomePage(props) {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const { width } = useWindowSize();
-  const isTablet = useMediaQuery('(max-width:1200px)');
+  const isTablet = useMediaQuery('(max-width:1000px)');
   const isMobile = useMediaQuery('(max-width:600px)');
   
   useEffect(() => {
@@ -174,16 +174,17 @@ function HomePage(props) {
           sx={{
             fontFamily: 'Sekasfont-Regular',
             fontSize: isMobile ? '1em' : '2em',
-            backgroundColor: '#2C3607',
+            backgroundColor: '#4C815E',
             color: 'white',
             width: 350,
             height: 35,
             letterSpacing: 2,
             padding: isMobile ? 2.6 : 2.6,
-            marginTop: isMobile ? 2 : -7,
+            marginTop: isMobile ? 2 : -2,
             borderRadius: 2,
             '&:hover': {
-              backgroundColor: '#4C815E',
+              backgroundColor: '#81a68e',
+              
             }
           }}
         >

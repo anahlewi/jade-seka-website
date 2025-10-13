@@ -11,7 +11,7 @@
 
 @media (max-width: 600px) {
   .landing-page-button {
-    font-size: 0.6em !important;
+    font-size: 0.8em !important;
   }
   .ampersand-main-title{
     font-size: "50px";
@@ -22,11 +22,11 @@
   }
 
   input{
-    font-size: 0.8em !important;
+    font-size: 1em !important;
   }
 
   input::placeholder {
-    font-size: 0.8em !important;
+    font-size: 1em !important;
   }
   .image-context {
     height: 80px;

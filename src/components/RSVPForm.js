@@ -8,6 +8,7 @@ import RSVPFormFields from './RSVPFormFields';
 
 export default function RSVPForm({ onSubmit }) {
   const eventOptions = getGuestEventConfig().config.flatMap(c => c.events);
+  
   const [form, setForm] = useState({
     id: localStorage.getItem('id') || '',
     firstName: '',
@@ -32,6 +33,7 @@ export default function RSVPForm({ onSubmit }) {
     { name: 'events', label: 'Event(s) Attending' },
     { name: 'plusOne', label: 'Plus One' },
   ];
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

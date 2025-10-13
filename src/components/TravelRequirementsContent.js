@@ -9,13 +9,12 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function TravelRequirementsContent() {
   const isTablet = useMediaQuery('(max-width:900px)');
-  const guestConfig = getGuestEventConfig();
-  const allowedEvents = guestConfig.config.flatMap(c => c.events);
+  const allowedEvents =  getGuestEventConfig().config.flatMap(c => c.events);
 
   const locations = [
     {
       name: 'Uganda Requirements',
-      key: 'Kasiki',
+      key: 'Wedding Party',
       content: [
         {
           items: [
@@ -45,7 +44,7 @@ export default function TravelRequirementsContent() {
     },
     {
       name: 'Zanzibar Requirements',
-      key: 'Wedding',
+      key: 'Wedding Ceremony',
       content: [
         {
             items: [

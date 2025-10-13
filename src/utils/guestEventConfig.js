@@ -4,8 +4,8 @@ export function getGuestEventConfig() {
   const citiesInvitedTo = rawCities.split(/\s*,\s*/).filter(Boolean);
   // Map of city/event keys to events to display
   const eventMap = {
-    'Uganda Guests': 'Kasiki',
-    'Zanzibar Guests': 'Wedding',
+    'Uganda Guests': ['Kasiki', 'Wedding Party'],
+    'Zanzibar Guests': ['Wedding', 'Wedding Ceremony'],
   };
   // Build config for each city
   const config = citiesInvitedTo.map(city => ({

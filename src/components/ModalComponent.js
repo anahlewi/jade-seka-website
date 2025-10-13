@@ -1,11 +1,10 @@
 import { useRef } from 'react';
 import { Modal, useMediaQuery } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, } from 'framer-motion';
 
 const ModalComponent = ({ open, onClose, children }) => {
   const contentRef = useRef(null);
-  const isDesktop = useMediaQuery('(min-width:1200px)');
-  const isTabletOrMobile = useMediaQuery('(max-width:1200px)');
+  const isDesktop = useMediaQuery('(min-width:1000px)');
 
   return (
     <AnimatePresence>
@@ -31,7 +30,8 @@ const ModalComponent = ({ open, onClose, children }) => {
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            exit={{ opacity: 0, x:-200, transition: { duration: 0.7 } }} // This defines the "close" animation
+            transition={{ duration: 0.3 }} // Adjust transition properties as
           >
             <motion.div
               ref={contentRef}
@@ -70,12 +70,12 @@ const ModalComponent = ({ open, onClose, children }) => {
                 className='sekasfont-regular close-button-modal'
                 style={{
                   position: 'absolute',
-                  top: isDesktop ? 27 : 36,
-                  right: isDesktop ? 13 : 29,
+                  top: isDesktop ? 45 : 41,
+                  right: isDesktop ? 25 : 29,
                   zIndex: 100,
                   border: 'none',
                   background: 'none',
-                  fontSize: isDesktop ? '2.75em' : '2em',
+                  fontSize: isDesktop ? '3em' : '2em',
                   lineHeight: 1,
                   cursor: 'pointer',
                 }}

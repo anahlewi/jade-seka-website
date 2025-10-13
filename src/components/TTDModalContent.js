@@ -7,13 +7,12 @@ import { renderDescriptionWithLink } from '../utils/renderDescriptionWithLink';
 
 export default function TTDModalContent() {
   const isTablet = useMediaQuery('(max-width:900px)');
-  const guestConfig = getGuestEventConfig();
-  const allowedEvents = guestConfig.config.flatMap(c => c.events);
+  const allowedEvents =  getGuestEventConfig().config.flatMap(c => c.events);
 
   const locations = [
     {
       name: 'Zanzibar',
-      key: 'Wedding',
+      key: 'Wedding Ceremony',
       items:[
         { text:'this page', 
           url:'https://www.tripadvisor.com/Attractions-g482884-Activities-Zanzibar_Island_Zanzibar_Archipelago.html', 

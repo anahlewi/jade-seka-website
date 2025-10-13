@@ -12,13 +12,12 @@ import { getGuestEventConfig } from '../utils/guestEventConfig';
 
 export default function TTDModalContent() {
   const isTablet = useMediaQuery('(max-width:900px)');  
-  const guestConfig = getGuestEventConfig();
-  const allowedEvents = guestConfig.config.flatMap(c => c.events);
+  const allowedEvents =  getGuestEventConfig().config.flatMap(c => c.events);
 
   const locations = [
     {
       name: 'Entebbe, Uganda (July 8 - 13)',
-      key:'Kasiki',
+      key:'Wedding Party',
       sections: [
         {
             date: 'July 8, 2026',
@@ -44,7 +43,7 @@ export default function TTDModalContent() {
     },
     {
       name: 'Zanzibar, Tanzania (July 14 - 20)',
-      key: 'Wedding',
+      key: 'Wedding Ceremony',
       sections: [
         {
             date: 'July 14, 2026',

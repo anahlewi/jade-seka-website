@@ -13,18 +13,19 @@ export default function RSVPFormFields({
     return null;
   }
 
+  eventOptions = eventOptions.filter(event => event === "Wedding Party" || event === "Wedding Ceremony" || event === "None");
+
   return (
     <Box component="form"
       onSubmit={handleSubmit}
       sx={isMobile ? {
         width: '95vw',
         maxWidth: 400,
-        marginLeft: 0.5,
         alignContent: 'center',
         flexDirection: 'column'
       } : {
         width: '100%',
-        maxWidth: 400,
+        maxWidth: 600,
         mx: 'auto'
       }}>
       <Typography variant="h3" sx={{ fontFamily: 'Sekasfont-Regular', mb: 3, textAlign: 'center' }}>
@@ -169,7 +170,18 @@ export default function RSVPFormFields({
           />
         </FormControl>
       </Stack>
-      <Button type="submit" variant="contained" sx={{ backgroundColor: '#2C3607', color: 'white', fontFamily: 'Sekasfont-Regular', fontSize:'1.2em',  mt: 2, width: '100%' }}>
+      <Button 
+        type="submit" 
+        variant="contained" 
+        sx={{ 
+          backgroundColor: '#2C3607', 
+          color: 'white', 
+          fontFamily: 'Sekasfont-Regular', 
+          fontSize:'1.2em',  
+          mt: 2, 
+          width: '100%', 
+          '&:hover': { backgroundColor: '#545c35' }
+        }}>
         Submit
       </Button>
     </Box>
