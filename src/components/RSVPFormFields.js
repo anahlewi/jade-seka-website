@@ -20,10 +20,8 @@ export default function RSVPFormFields({
       onSubmit={handleSubmit}
       sx={isMobile ? {
         width: '95vw',
-        height: '80dvh',
         maxWidth: 400,
-        overflowY: 'scroll',
-        paddingBottom: 3,
+        paddingBottom: 15,
         alignContent: 'center',
         flexDirection: 'column'
       } : {
