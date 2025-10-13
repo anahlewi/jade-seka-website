@@ -24,7 +24,6 @@ export default function RSVPFormFields({
         height: isMobile ? '60vh' : 'auto', 
         overflowY: 'scroll',
         alignContent: 'center',
-        paddingBottom: 10,
         flexDirection: 'column'
       } : {
         width: '100%',
@@ -180,7 +179,8 @@ export default function RSVPFormFields({
           backgroundColor: '#2C3607', 
           color: 'white', 
           fontFamily: 'Sekasfont-Regular', 
-          fontSize:'1.2em',  
+          fontSize:'1.2em', 
+          paddingBottom: 10,
           mt: 2, 
           width: '100%', 
           '&:hover': { backgroundColor: '#545c35' }
