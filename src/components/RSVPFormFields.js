@@ -22,6 +22,7 @@ export default function RSVPFormFields({
         width: '95vw',
         maxWidth: 400,
         alignContent: 'center',
+        paddingBottom: 5,
         flexDirection: 'column'
       } : {
         width: '100%',

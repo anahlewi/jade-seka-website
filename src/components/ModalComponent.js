@@ -49,6 +49,7 @@ const ModalComponent = ({ open, onClose, children }) => {
                   : {
                       overflowY: 'auto',
                       backgroundColor: '#FDEDF0',
+                      boxSizing: 'content-box',
                       padding: '10px',
                       borderRadius: 0,
                       height: '100vh',
