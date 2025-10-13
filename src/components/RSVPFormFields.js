@@ -21,10 +21,10 @@ export default function RSVPFormFields({
       sx={isMobile ? {
         width: '95vw',
         maxWidth: 400,
-        minHeight: '60vh', 
+        height: isMobile ? '60vh' : 'auto', 
         overflowY: 'scroll',
         alignContent: 'center',
-        paddingBottom: 5,
+        paddingBottom: 10,
         flexDirection: 'column'
       } : {
         width: '100%',
