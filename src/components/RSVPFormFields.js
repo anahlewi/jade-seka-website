@@ -21,6 +21,8 @@ export default function RSVPFormFields({
       sx={isMobile ? {
         width: '95vw',
         maxWidth: 400,
+        minHeight: '60vh', 
+        overflowY: 'scroll',
         alignContent: 'center',
         paddingBottom: 5,
         flexDirection: 'column'
