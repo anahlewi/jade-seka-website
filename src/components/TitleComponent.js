@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 function TitleComponent({ width }) {
   const mainTitleCss = width > 600
     ? { fontFamily: 'sekasfont-regular', fontSize: 80, color: '#4C815E', letterSpacing: -4.5 }
-    : { fontFamily: 'sekasfont-regular', fontSize: 50, color: '#4C815E', letterSpacing: -4.5 };
+    : { fontFamily: 'sekasfont-regular', fontSize: 60, color: '#4C815E', letterSpacing: -4.5 };
   const mainHeadingCss = width > 600
     ? { fontFamily: 'Reey', fontSize: 30, color: '#F77F9F', letterSpacing: -1.5 }
     : { fontFamily: 'Reey', fontSize: '24px', color: '#F77F9F', letterSpacing: -1.5 };

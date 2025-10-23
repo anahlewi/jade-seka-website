@@ -129,7 +129,7 @@ function HomePage(props) {
                   whiteSpace: 'normal',
                   textAlign: 'center',
                   marginBottom: 2,
-                  fontSize: isMobile ? '1em' : '1.5em',
+                  fontSize: isMobile ? '1.3em' : '1.5em',
                   lineHeight: 1,
                 }}
                 letterSpacing={-1.5}
@@ -143,8 +143,8 @@ function HomePage(props) {
       });
 
   return (
-    <div>
-      <Box sx={{ position: 'relative', width: '100%', minHeight: 120, display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2, }}>
+    <div style={{marginTop: isMobile ? 50: 0}}>
+      <Box sx= {{width: '100%', minHeight: 120, display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2, }}>
         <Box justifyItems="center" alignItems="center" sx={{ textAlign: 'center', width: '100%' }}>
           <TitleComponent width={width} />
         </Box>
@@ -173,7 +173,7 @@ function HomePage(props) {
           onClick={openModal}
           sx={{
             fontFamily: 'Sekasfont-Regular',
-            fontSize: isMobile ? '1em' : '2em',
+            fontSize: isMobile ? '1.5em' : '2em',
             backgroundColor: '#4C815E',
             color: 'white',
             width: 350,
@@ -181,7 +181,7 @@ function HomePage(props) {
             letterSpacing: 2,
             padding: isMobile ? 2.6 : 2.6,
             marginTop: isMobile ? 2 : -2,
-            borderRadius: 2,
+            borderRadius: 3.5,
             '&:hover': {
               backgroundColor: '#81a68e',
               
@@ -192,10 +192,7 @@ function HomePage(props) {
         </Button>
       </Grid>
       {isModalOpen && (
-        <ModalComponent open={isModalOpen} onClose={closeModal}>
-          <Typography sx={{ fontFamily: 'Sekasfont-Regular'}} fontSize={isMobile? '2.6em': 'auto'} variant="h2" marginTop={4} marginBottom={5} gutterBottom>
-            {selectedImage?.modalContent?.title || ''}
-          </Typography>
+        <ModalComponent open={isModalOpen} onClose={closeModal} title={selectedImage?.modalContent?.title}>
           <Box marginTop={4} marginBottom={2}>
             {selectedImage?.modalContent?.description || <RSVPForm onSubmit={updateRSVPInSheetDB}/>}
           </Box>

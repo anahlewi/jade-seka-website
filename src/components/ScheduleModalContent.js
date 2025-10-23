@@ -33,7 +33,7 @@ export default function TTDModalContent() {
         },
         {
             date: 'July 11, 2026',
-            items: ['Kasiki Reception'],
+            items: ['Wedding Party'],
         },
         {
             date: 'July 12, 2026',
