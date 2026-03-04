@@ -12,7 +12,7 @@ import { getGuestEventConfig } from '../utils/guestEventConfig';
 
 export default function TTDModalContent() {
   const isTablet = useMediaQuery('(max-width:900px)');  
-  const allowedEvents =  getGuestEventConfig().config.flatMap(c => c.events);
+  const allowedEvents =  getGuestEventConfig().config.flatMap(c => c.visibilityKeys);
 
   const locations = [
     {

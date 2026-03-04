@@ -2,15 +2,22 @@
 export function getGuestEventConfig() {
   const rawCities = localStorage.getItem('guestCities') || '';
   const citiesInvitedTo = rawCities.split(/\s*,\s*/).filter(Boolean);
-  // Map of city/event keys to events to display
-  const eventMap = {
-    'Uganda Guests': ['Kasiki', 'Wedding Party'],
-    'Zanzibar Guests': ['Wedding', 'Wedding Ceremony'],
+  // Map of city keys to RSVP events and content-filtering visibility keys
+  const cityConfig = {
+    'Uganda Guests': {
+      events: ['Celebration of Love in Uganda'],
+      visibilityKeys: ['Wedding Party'],
+    },
+    'Zanzibar Guests': {
+      events: ['Welcome Party', 'Friends & Family Dinner', 'Wedding Ceremony'],
+      visibilityKeys: ['Wedding Ceremony'],
+    },
   };
   // Build config for each city
   const config = citiesInvitedTo.map(city => ({
     city,
-    events: eventMap[city] || [],
+    events: cityConfig[city]?.events || [],
+    visibilityKeys: cityConfig[city]?.visibilityKeys || [],
   }));
   return { citiesInvitedTo, config };
 }

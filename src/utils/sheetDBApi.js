@@ -18,11 +18,10 @@ export async function updateRSVPInSheetDB(form) {
       body: JSON.stringify({ data: {
         'Name': form.firstName + ' ' + form.lastName,
         'RSVP': form.events.includes('None') ? "Can't Attend" : 'Yes',
-        'Plus One?': form.plusOne,
-        'Plus One Name': form.plusOneName,
         'Events': form.events.join(', '),
         'Dietary Restrictions': form.dietary,
         'Note': form.note,
+        'Child-Free Acknowledged': form.childFreeAck ? 'Yes' : '',
       } }),
     });
 
@@ -144,5 +143,3 @@ export async function guest_email(id) {
     throw error;
   }
 }
-
-

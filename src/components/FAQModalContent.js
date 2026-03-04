@@ -13,7 +13,7 @@ export default function FAQModalContent() {
   const isMobile = useMediaQuery('(max-width:600px)');
   
   // Only show 'How much can I expect to spend?' if invited to Wedding Ceremony in Zanzibar
-  const allowedEvents =  getGuestEventConfig().config.flatMap(c => c.events);
+  const allowedEvents =  getGuestEventConfig().config.flatMap(c => c.visibilityKeys);
   const showSpendFaq = allowedEvents.includes('Wedding Ceremony');
 
   const faqs = [
