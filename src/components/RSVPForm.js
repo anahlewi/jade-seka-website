@@ -8,16 +8,18 @@ import RSVPFormFields from './RSVPFormFields';
 
 export default function RSVPForm({ onSubmit }) {
   const eventOptions = getGuestEventConfig().config.flatMap(c => c.events);
-  
+
+  const zanzibarEvents = ['Welcome Party', 'Friends & Family Dinner', 'Wedding Ceremony'];
+  const showChildFree = eventOptions.some(e => zanzibarEvents.includes(e));
+
   const [form, setForm] = useState({
     id: localStorage.getItem('id') || '',
     firstName: '',
     lastName: '',
-    plusOne: '',
-    plusOneName: '',
     events: [],
     dietary: '',
     note: '',
+    childFreeAck: false,
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -31,13 +33,22 @@ export default function RSVPForm({ onSubmit }) {
     { name: 'firstName', label: 'First Name' },
     { name: 'lastName', label: 'Last Name' },
     { name: 'events', label: 'Event(s) Attending' },
-    { name: 'plusOne', label: 'Plus One' },
+    ...(showChildFree && !form.events.includes('None')
+      ? [{ name: 'childFreeAck', label: 'Child-Free Acknowledgment' }]
+      : []),
   ];
 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm((prev) => {
+      const next = { ...prev, [name]: value };
+      // When "None" is selected, reset childFreeAck
+      if (name === 'events' && Array.isArray(value) && value.includes('None')) {
+        next.childFreeAck = false;
+      }
+      return next;
+    });
     console.log('Form updated:', form);
   };
 
@@ -47,6 +58,8 @@ export default function RSVPForm({ onSubmit }) {
     for (const field of requiredFields) {
       if (field.name === 'events' && form.events.length === 0) {
         errors.events = true;
+      } else if (field.name === 'childFreeAck' && form.childFreeAck !== true) {
+        errors.childFreeAck = true;
       } else if (!form[field.name]) {
         errors[field.name] = true;
       }
@@ -109,6 +122,7 @@ export default function RSVPForm({ onSubmit }) {
         handleSubmit={handleSubmit}
         isMobile={isMobile}
         alreadyRSVPed={alreadyRSVPed}
+        showChildFree={showChildFree}
       />
     )
   );

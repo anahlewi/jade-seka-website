@@ -9,7 +9,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function TravelRequirementsContent() {
   const isTablet = useMediaQuery('(max-width:900px)');
-  const allowedEvents =  getGuestEventConfig().config.flatMap(c => c.events);
+  const allowedEvents =  getGuestEventConfig().config.flatMap(c => c.visibilityKeys);
 
   const locations = [
     {
